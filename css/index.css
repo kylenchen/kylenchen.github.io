@@ -789,6 +789,12 @@ footer.is-mobile {
   #page-header .menus a:hover {
     color: #4e83a8;
   }
+  #page-header .search {
+    right: 0.5rem;
+  }
+  #page-header .search span {
+    display: none;
+  }
 }
 .recent-post-item {
   margin: 1.6rem 0 2rem;
@@ -1231,8 +1237,10 @@ footer.is-mobile {
   margin-bottom: 0.5rem;
 }
 .post-meta__tags {
-  margin-right: 0.4rem;
-  padding: 0.2rem 0.6rem;
+  display: inline-block;
+  width: fit-content;
+  margin: 0 0.4rem 0.2rem 0;
+  padding: 0rem 0.6rem;
   border: 1px solid #4e83a8;
   border-radius: 0.6rem;
   background: #fff;
@@ -1308,6 +1316,9 @@ footer.is-mobile {
 #content-inner h1 {
   padding-left: 1.1rem;
 }
+#content-inner h1 code {
+  font-size: 1rem;
+}
 #content-inner h1:before {
   top: calc(50% - unit(fontsize / 2 - 0.05, "rem"));
   font-size: 1rem;
@@ -1317,6 +1328,9 @@ footer.is-mobile {
 }
 #content-inner h2 {
   padding-left: 1rem;
+}
+#content-inner h2 code {
+  font-size: 0.9rem;
 }
 #content-inner h2:before {
   top: calc(50% - unit(fontsize / 2 - 0.05, "rem"));
@@ -1328,6 +1342,9 @@ footer.is-mobile {
 #content-inner h3 {
   padding-left: 0.9rem;
 }
+#content-inner h3 code {
+  font-size: 0.8rem;
+}
 #content-inner h3:before {
   top: calc(50% - unit(fontsize / 2 - 0.05, "rem"));
   font-size: 0.8rem;
@@ -1337,6 +1354,9 @@ footer.is-mobile {
 }
 #content-inner h4 {
   padding-left: 0.8rem;
+}
+#content-inner h4 code {
+  font-size: 0.7rem;
 }
 #content-inner h4:before {
   top: calc(50% - unit(fontsize / 2 - 0.05, "rem"));
@@ -1348,6 +1368,9 @@ footer.is-mobile {
 #content-inner h5 {
   padding-left: 0.7rem;
 }
+#content-inner h5 code {
+  font-size: 0.6rem;
+}
 #content-inner h5:before {
   top: calc(50% - unit(fontsize / 2 - 0.05, "rem"));
   font-size: 0.6rem;
@@ -1357,6 +1380,9 @@ footer.is-mobile {
 }
 #content-inner h6 {
   padding-left: 0.7rem;
+}
+#content-inner h6 code {
+  font-size: 0.6rem;
 }
 #content-inner h6:before {
   top: calc(50% - unit(fontsize / 2 - 0.05, "rem"));
@@ -1453,6 +1479,7 @@ a:hover {
 }
 a#site-name {
   text-decoration: none;
+  color: #eee;
 }
 a.fancybox {
   outline: none;
@@ -1586,9 +1613,11 @@ img:hover {
   }
   #top-container #post-title {
     font-size: 1.1rem;
+    color: #eee;
   }
   #post-title {
     font-size: 1.1rem;
+    color: #eee;
   }
 }
 @media screen and (min-width: 768px) {
