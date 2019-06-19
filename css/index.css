@@ -3268,7 +3268,7 @@ img:hover {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   #recent-posts .is_left {
     display: none;
   }
@@ -3278,7 +3278,7 @@ img:hover {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   #recent-posts .is_right {
     display: none;
   }
@@ -3487,7 +3487,7 @@ a.article-meta__tags:hover {
     width: 100% !important;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .recent-post-item {
     height: auto !important;
     border-radius: 8px;
