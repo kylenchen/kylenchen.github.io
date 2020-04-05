@@ -1518,6 +1518,11 @@ footer.footer-bg {
   width: 100%;
   top: 140px !important;
 }
+@media screen and (max-width: 768px) {
+  #site-info {
+    top: 90px !important;
+  }
+}
 #site-title,
 #site-sub-title {
   color: #eee;
@@ -1744,6 +1749,12 @@ footer.footer-bg {
 }
 #page-header .site-page {
   margin-left: 1rem;
+}
+@media screen and (max-width: 768px) {
+  #nav.full_page {
+    background-attachment: local;
+    height: 240px !important;
+  }
 }
 .night-mode footer {
   background: #2d3035;
