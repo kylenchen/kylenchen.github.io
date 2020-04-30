@@ -2874,6 +2874,7 @@ img:hover {
   background: #fff;
   margin-top: 40px;
   margin-bottom: 40px;
+  margin-right: 35px;
 }
 .layout_post:hover {
   -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
@@ -3459,7 +3460,7 @@ a.article-meta__tags:hover {
   -ms-transition: all 0.3s;
   transition: all 0.3s;
   background: #fff;
-  margin-top: 20px;
+  margin-top: 40px;
   width: 75%;
 }
 .card_widget:hover,

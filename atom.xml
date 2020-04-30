@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenbw.top/"/>
-  <updated>2019-06-21T09:32:50.391Z</updated>
+  <updated>2020-04-30T07:14:56.527Z</updated>
   <id>https://chenbw.top/</id>
   
   <author>
@@ -15,6 +15,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyCharm2019.3.3安装与激活教程</title>
+    <link href="https://chenbw.top/2020/04/30/pycharm2019/"/>
+    <id>https://chenbw.top/2020/04/30/pycharm2019/</id>
+    <published>2020-04-30T06:38:52.000Z</published>
+    <updated>2020-04-30T07:14:56.527Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h2><p>官网下载链接：<a href="https://www.jetbrains.com/pycharm/download" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download</a></p><p>博主选择的最新的Pycharm 2019.3.3 (Professional Edition) Build: 193.6494.30 on February 7 2020</p><h2 id="安装与激活"><a href="#安装与激活" class="headerlink" title="安装与激活"></a>安装与激活</h2><p><strong>1）</strong> 安装成功后，先不要打开pycharm，再将激活补丁jetbrains-agent.jar放到pycharm安装路径下的bin文件夹里。顺便复制一下路径，一会儿会用到。</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/pycharm2019/1.png" alt=""></p><p><strong>2）</strong> 激活补丁放到指定路径后，现在可以打开pycharm了，一开始会询问你是否有激活码，如果想永久激活，不要输入激活码，选择“Evaluate for free”免费试用，然后点击【Evaluate】按钮，选择continue。弹出需要注册码，注册之前，我们先屏蔽软件联网，以记事本的方式打开hosts文件，将代码添加至hosts文件屏蔽网络联网</p><p>hosts文件默认目录【C:Windows\System32\drivers\etc】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.0.0.0 account.jetbrains.com</span><br><span class="line">0.0.0.0 www.jetbrains.com</span><br></pre></td></tr></table></figure><br>win10用户可能需要修改hosts文件权限后才可以保存。</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/pycharm2019/2.png" alt=""></p><p><strong>3）</strong> 在弹出的开始欢迎界面中，点击右下角的【Configure】配置按钮，在弹出的菜单里，选择“Edit Custom VM Option”选项。 配置-&gt;编辑自定义VM配置</p><p><strong>4）</strong> 弹出的新窗口里，在文本输入框的最下面一行输入以下内容： -javaagent:【你刚才复制的pycharm的bin文件夹的绝对路径】jetbrains-agent.jar 你需要把中括号【】在内的文本替换成你自己电脑里的路径，假如是“D:\PyCharmpro\PyCharm 2019.3.3\bin”，那么这一行，你就要填： -javaagent:D:\PyCharmpro\PyCharm 2019.3.3\bin\jetbrains-agent.jar 切记一定要确认自己的路径，写错将无法打开软件。</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/pycharm2019/3.png" alt=""></p><p>点击【Save】按钮保存这一行信息，然后关闭Pycharm软件，再重新打开Pycharm。</p><p><strong>5）</strong> 再次进入开始欢迎页面，点击“Create New Project”，在弹出的窗口里，右侧点开下拉菜单“Project Interpreter”。选择“Existing interpreter”。点击【…】按钮，选择本地的python解释器路径。（如果您还没有安装任何python解释器，可以安装官方python也可以按照Anaconda）</p><p><strong>6）</strong> 进入工程页面后，在上方的菜单栏选择“Help”帮助菜单，点击里面的“Register…”选项，弹出注册方式。选择“License server”许可证服务器验证方式，此时要保证电脑处于联网状态，等待大概1分钟左右的时间，Server address会自动出现在输入框，出来之后，点击【Activate】按钮即可！至此，激活圆满结束！</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/pycharm2019/4.png" alt=""></p><p><strong>7）</strong> 验证是否永久激活成功：再次点击“Help”菜单栏，选中“About”选项，看看相关的信息，“Licensed”字段的出现意味着您已经永久激活成功。</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/pycharm2019/5.png" alt=""></p><p><strong>8）</strong> 解决JetbrainsAgent loads successfully!提示弹窗</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/pycharm2019/6.png" alt=""></p><p>解决方式：<br>       idea安装目录 → bin → jetbrains-agent.jar → 解压工具打开 → META-INF → important.txt 将 important.txt 这个文件复制到 bin 目录下，问题解决！【保证jetbrains-agent.jar 和 important.txt 在同一个目录下】</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装包下载&quot;&gt;&lt;a href=&quot;#安装包下载&quot; class=&quot;headerlink&quot; title=&quot;安装包下载&quot;&gt;&lt;/a&gt;安装包下载&lt;/h2&gt;&lt;p&gt;官网下载链接：&lt;a href=&quot;https://www.jetbrains.com/pycharm/download
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://chenbw.top/categories/Python/"/>
+    
+    
+      <category term="教程" scheme="https://chenbw.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="PyCharm" scheme="https://chenbw.top/tags/PyCharm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>128M或以下小内存系统systemd重启报错的问题</title>
+    <link href="https://chenbw.top/2020/04/30/systemd/"/>
+    <id>https://chenbw.top/2020/04/30/systemd/</id>
+    <published>2020-04-30T06:30:47.000Z</published>
+    <updated>2020-04-30T07:20:05.522Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在小内存Debian 9 x64版本的服务器，安装需要重启systemd服务的软件时，systemd总会报错:</p><p><strong>Run ‘systemctl daemon-reload’ to reload units.<br>Failed to reload daemon: Refusing to reload, not enough space available on /run/systemd. Currently, 13.0M are free, but a safety buffer of 16.0M is enforced</strong>.</p><p>报错是因为<strong>/run</strong>太小，从报错可以看出，<strong>safety buffer</strong>为16.0M，则可修改<strong>/etc/fstab</strong>，给<strong>/run</strong>分配更大一点的<strong>safety buffer</strong>。</p><p>在<strong>/etc</strong>路径下找到<strong>fstab</strong>，在内容结尾追加:</p><p><strong>tmpfs /run tmpfs nosuid,noexec,size=50M,nr_inodes=4096 0 0</strong></p><p>重启服务</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;在小内存Debian 9 x64版本的服务器，安装需要重启systemd服务的软件时，systemd总会报错:&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+      <category term="系统" scheme="https://chenbw.top/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="问题" scheme="https://chenbw.top/tags/%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Awesome, You-Get视频下载工具</title>
+    <link href="https://chenbw.top/2020/04/30/you-get/"/>
+    <id>https://chenbw.top/2020/04/30/you-get/</id>
+    <published>2020-04-30T04:40:21.000Z</published>
+    <updated>2020-04-30T07:17:23.401Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>相比国外视频下载神器youtube-dl，you-get则更偏向于国内平台的视频下载。</p></blockquote><h2 id="You-Get是神马"><a href="#You-Get是神马" class="headerlink" title="You-Get是神马"></a>You-Get是神马</h2><p>相比国外视频下载神器youtube-dl，you-get则更偏向于国内平台的视频下载。</p><p>You-Get 乃一小小哒命令行程序，提供便利的方式来下载网络上的媒体信息，可见官方文档。</p><ul><li>下载流行网站之音视频，例如YouTube, Youku, Niconico,以及更多</li><li>于您心仪的媒体播放器中观看在线视频，脱离浏览器与广告</li><li>下载您喜欢的网页上的图片</li><li>下载任何非HTML内容，例如二进制文件</li></ul><h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p>You-Get的安装依赖：</p><ul><li>Python 3</li><li>FFmpeg (强烈推荐) or Libav</li><li>(可选) RTMPDump</li></ul><p>这里我只装了Python3.7，可完美运行</p><p>可通过pip安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install you-get</span><br></pre></td></tr></table></figure><br>升级：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install --upgrade you-get</span><br></pre></td></tr></table></figure><br>或下载最新更新:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ you-get https:&#x2F;&#x2F;github.com&#x2F;soimort&#x2F;you-get&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure></p><h2 id="下载视频"><a href="#下载视频" class="headerlink" title="下载视频"></a>下载视频</h2><p>当观赏感兴趣之视频，您可以使用 –info/-i 以查看所有可用画质与格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$ you-get -i &#39;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;jNQXAC9IVRw&#39;</span><br><span class="line">   site: YouTube</span><br><span class="line">   title: Me at the zoo</span><br><span class="line">   streams: # Available quality and codecs</span><br><span class="line">      [ DEFAULT ] _________________________________</span><br><span class="line">      - itag: 43</span><br><span class="line">      container: webm</span><br><span class="line">      quality: medium</span><br><span class="line">      size: 0.5 MiB (564215 bytes)</span><br><span class="line">      # download-with: you-get --itag&#x3D;43 [URL]</span><br><span class="line"></span><br><span class="line">      - itag: 18</span><br><span class="line">      container: mp4</span><br><span class="line">      quality: medium</span><br><span class="line">      # download-with: you-get --itag&#x3D;18 [URL]</span><br><span class="line"></span><br><span class="line">      - itag: 5</span><br><span class="line">      container: flv</span><br><span class="line">      quality: small</span><br><span class="line">      # download-with: you-get --itag&#x3D;5 [URL]</span><br><span class="line"></span><br><span class="line">      - itag: 36</span><br><span class="line">      container: 3gp</span><br><span class="line">      quality: small</span><br><span class="line">      # download-with: you-get --itag&#x3D;36 [URL]</span><br><span class="line"></span><br><span class="line">      - itag: 17</span><br><span class="line">      container: 3gp</span><br><span class="line">      quality: small</span><br><span class="line">      # download-with: you-get --itag&#x3D;17 [URL]</span><br></pre></td></tr></table></figure><br>标有DEFAULT 为默认画质。如认同，可下载:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ you-get &#39;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;jNQXAC9IVRw&#39;</span><br><span class="line">   site: YouTube</span><br><span class="line">   title: Me at the zoo</span><br><span class="line">   stream:</span><br><span class="line">      - itag: 43</span><br><span class="line">      container: webm</span><br><span class="line">      quality: medium</span><br><span class="line">      size: 0.5 MiB (564215 bytes)</span><br><span class="line">      # download-with: you-get --itag&#x3D;43 [URL]</span><br><span class="line"></span><br><span class="line">   Downloading zoo.webm ...</span><br><span class="line">   100.0% ( 0.5&#x2F;0.5 MB) ├████████████████████████████████████████┤[1&#x2F;1] 7 MB&#x2F;s</span><br><span class="line"></span><br><span class="line">   Saving Me at the zoo.en.srt ...Done.</span><br></pre></td></tr></table></figure><br>(如YouTube视频带有字幕，将被一同下载，以SubRip格式保存.)</p><p>或，如您希望其他格式(mp4)，请使用其他提示选项:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ you-get --itag&#x3D;18 &#39;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;jNQXAC9IVRw&#39;</span><br></pre></td></tr></table></figure><br>更多使用说明和视频平台支持下载列表，可以从官方了解</p><p><a href="https://you-get.org/" target="_blank" rel="noopener"><strong>You-Get官网</strong></a>：<a href="https://you-get.org/" target="_blank" rel="noopener">https://you-get.org/</a><br><a href="https://github.com/soimort/you-get" target="_blank" rel="noopener"><strong>GitHub项目</strong></a>：<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">https://github.com/soimort/you-get</a></p><h2 id="Youtube-dl下载工具"><a href="#Youtube-dl下载工具" class="headerlink" title="Youtube-dl下载工具"></a>Youtube-dl下载工具</h2><p>可通过pip安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install youtube-dl</span><br></pre></td></tr></table></figure><br>升级：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install --upgrade youtube-dl</span><br></pre></td></tr></table></figure><br>获取视频信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ youtube-dl -F https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;ru5pYT_e7W4</span><br><span class="line">   [youtube] ru5pYT_e7W4: Downloading webpage</span><br><span class="line">   [youtube] ru5pYT_e7W4: Downloading video info webpage</span><br><span class="line">   [youtube] ru5pYT_e7W4: Downloading MPD manifest</span><br><span class="line">   [info] Available formats for ru5pYT_e7W4:</span><br><span class="line">   format code extension resolution note</span><br><span class="line">   139 m4a audio only DASH audio 50k , m4a_dash container, mp4a.40.5@ 48k (22050Hz)</span><br><span class="line">   140 m4a audio only DASH audio 130k , m4a_dash container, mp4a.40.2@128k (44100Hz)</span><br><span class="line">   251 webm audio only DASH audio 150k , webm_dash container, opus @160k (48000Hz)</span><br><span class="line">   278 webm 256x144 DASH video 95k , webm_dash container, vp9, 30fps, video only</span><br><span class="line">   160 mp4 256x144 DASH video 108k , mp4_dash container, avc1.4d400b, 30fps, video only</span><br><span class="line">   242 webm 426x240 DASH video 220k , webm_dash container, vp9, 30fps, video only</span><br><span class="line">   133 mp4 426x240 DASH video 242k , mp4_dash container, avc1.4d400c, 30fps, video only</span><br><span class="line">   243 webm 640x360 DASH video 405k , webm_dash container, vp9, 30fps, video only</span><br><span class="line">   134 mp4 640x360 DASH video 638k , mp4_dash container, avc1.4d401e, 30fps, video only</span><br><span class="line">   244 webm 854x480 DASH video 752k , webm_dash container, vp9, 30fps, video only</span><br><span class="line">   135 mp4 854x480 DASH video 1155k , mp4_dash container, avc1.4d4014, 30fps, video only</span><br><span class="line">   247 webm 1280x720 DASH video 1505k , webm_dash container, vp9, 30fps, video only</span><br><span class="line">   136 mp4 1280x720 DASH video 2310k , mp4_dash container, avc1.4d4016, 30fps, video only</span><br><span class="line">   248 webm 1920x1080 DASH video 2646k , webm_dash container, vp9, 30fps, video only</span><br><span class="line">   137 mp4 1920x1080 DASH video 4529k , mp4_dash container, avc1.640028, 30fps, video only</span><br><span class="line">   18 mp4 640x360 360p 664k , avc1.42001E, mp4a.40.2@ 96k (44100Hz), 24.61MiB (best)</span><br></pre></td></tr></table></figure></p><p>输入命令开始下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ youtube-dl -f 文件编号 视频地址</span><br></pre></td></tr></table></figure></p><h2 id="FFmpeg安装"><a href="#FFmpeg安装" class="headerlink" title="FFmpeg安装"></a>FFmpeg安装</h2><p>1）下载进入 <strong><a href="http://ffmpeg.org/download.html#build-windows" target="_blank" rel="noopener">http://ffmpeg.org/download.html#build-windows</a></strong> 选择点击打开链接Windows对应的版本下载，Linux系统可通过 apt-get install ffmpeg 安装；</p><p>2）解压 <strong>ffmpeg-20191217-bd83191-win64-static.zip</strong> 文件到指定目录；</p><p>3）将解压后的文件目录中 bin 目录（包含 ffmpeg.exe ）添加进 path 环境变量中；</p><p>4）进入 cmd，输入 <strong>ffmpeg -version</strong>，可验证当前系统是否识别 ffmpeg，以及查看 ffmpeg 的版本</p><p>youtube-dl若要合并音频视频需要调用FFmpeg</p><p>输入命令开始合并下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ youtube-dl -f 137+139 https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;ru5pYT_e7W4</span><br></pre></td></tr></table></figure><br>更多使用说明和视频平台支持下载列表，可以从官方了解</p><p><a href="http://ytdl-org.github.io/youtube-dl/" target="_blank" rel="noopener"><strong>Youtube-dl官网</strong></a>：<a href="http://ytdl-org.github.io/youtube-dl/" target="_blank" rel="noopener">http://ytdl-org.github.io/youtube-dl/</a><br><a href="https://github.com/ytdl-org/youtube-dl" target="_blank" rel="noopener"><strong>GitHub项目</strong></a>：<a href="https://github.com/ytdl-org/youtube-dl" target="_blank" rel="noopener">https://github.com/ytdl-org/youtube-dl</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;相比国外视频下载神器youtube-dl，you-get则更偏向于国内平台的视频下载。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;You-Get是神马&quot;&gt;&lt;a href=&quot;#You-Get是神马&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+      <category term="系统" scheme="https://chenbw.top/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="You-Get" scheme="https://chenbw.top/tags/You-Get/"/>
+    
+      <category term="Youtube-dl" scheme="https://chenbw.top/tags/Youtube-dl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统开启原生BBR加速</title>
+    <link href="https://chenbw.top/2020/04/30/bbrspeed/"/>
+    <id>https://chenbw.top/2020/04/30/bbrspeed/</id>
+    <published>2020-04-30T03:49:31.000Z</published>
+    <updated>2020-04-30T07:17:46.662Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CentOS-7启用原生Google-BBR"><a href="#CentOS-7启用原生Google-BBR" class="headerlink" title="CentOS 7启用原生Google BBR"></a>CentOS 7启用原生Google BBR</h2><h3 id="更新CentOS-7内核为支持BBR的内核"><a href="#更新CentOS-7内核为支持BBR的内核" class="headerlink" title="更新CentOS 7内核为支持BBR的内核"></a>更新CentOS 7内核为支持BBR的内核</h3><p>1、查看Centos内核<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure><br>2、如果低于4.10，则更新内核<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm --import https:&#x2F;&#x2F;www.elrepo.org&#x2F;RPM-GPG-KEY-elrepo.org</span><br><span class="line">       rpm -Uvh http:&#x2F;&#x2F;www.elrepo.org&#x2F;elrepo-release-7.0-2.el7.elrepo.noarch.rpm</span><br><span class="line">       yum --enablerepo&#x3D;elrepo-kernel install kernel-ml -y</span><br></pre></td></tr></table></figure><br>3、安装完成后，查看已安装的内核：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep kernel</span><br></pre></td></tr></table></figure></p><p>如果看到 <strong>kernel-ml-5.3.5-1.el7.elrepo.x86_64</strong> 字样的，即是成功。</p><p>4、更新开机启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">egrep ^menuentry &#x2F;etc&#x2F;grub2.cfg | cut -f 2 -d \\&#39;</span><br></pre></td></tr></table></figure><br>会看到类似这样的</p><p><strong>CentOS Linux (5.3.5-1.el7.elrepo.x86_64) 7 (Core)<br>       CentOS Linux (3.10.0-957.1.3.el7.x86_64) 7 (Core)<br>       CentOS Linux (0-rescue-96820b9851c24560b5f942f2496b9aeb) 7 (Core)</strong></p><p>设置 <strong>CentOS Linux (5.3.5-1.el7.elrepo.x86_64) 7 (Core)</strong> 为第一启动顺序（因为启动是从0开始计算）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-set-default 0</span><br></pre></td></tr></table></figure></p><p>5、重启系统<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure></p><h3 id="CentOS-7启用BBR"><a href="#CentOS-7启用BBR" class="headerlink" title="CentOS 7启用BBR"></a>CentOS 7启用BBR</h3><p>1、执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &#39;net.core.default_qdisc&#x3D;fq&#39; | sudo tee -a &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">       echo &#39;net.ipv4.tcp\_congestion\_control&#x3D;bbr&#39; | sudo tee -a &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">       sysctl -p</span><br></pre></td></tr></table></figure><br>2、查看内核是否已开启BBR<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp\_available\_congestion_control</span><br></pre></td></tr></table></figure><br>和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure><br>如果均显示BBR字样的，表示开启BBR成功。</p><h2 id="Debian-9启用原生Google-BBR"><a href="#Debian-9启用原生Google-BBR" class="headerlink" title="Debian 9启用原生Google BBR"></a>Debian 9启用原生Google BBR</h2><p>1、修改系统变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.core.default_qdisc&#x3D;fq&quot; &gt;&gt; &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">       echo &quot;net.ipv4.tcp_congestion_control&#x3D;bbr&quot; &gt;&gt; &#x2F;etc&#x2F;sysctl.conf</span><br></pre></td></tr></table></figure><br>2、保存生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure><br>3、查看内核是否已开启BBR<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure><br>显示如下内容表示开启：</p><p><strong>sysctl net.ipv4.tcp_available_congestion_control<br>       net.ipv4.tcp_available_congestion_control = bbr cubic reno</strong></p><p>4、通过上面的操作应该已经启动了BBR。再看下BBR是否启动。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure><br>显示以下即启动成功：</p><p><strong>lsmod | grep bbr<br>       tcp_bbr 20480 14</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CentOS-7启用原生Google-BBR&quot;&gt;&lt;a href=&quot;#CentOS-7启用原生Google-BBR&quot; class=&quot;headerlink&quot; title=&quot;CentOS 7启用原生Google BBR&quot;&gt;&lt;/a&gt;CentOS 7启用原生Google B
+      
+    
+    </summary>
+    
+      <category term="系统" scheme="https://chenbw.top/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Linux" scheme="https://chenbw.top/tags/Linux/"/>
+    
+      <category term="BBR" scheme="https://chenbw.top/tags/BBR/"/>
+    
+  </entry>
   
   <entry>
     <title>基于Windows搭建PHP开发环境(IIS)</title>
