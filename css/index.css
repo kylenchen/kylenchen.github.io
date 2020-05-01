@@ -514,7 +514,7 @@ figure.highlight {
 }
 blockquote {
   margin: 0;
-  padding: 0.1rem 0.8rem;
+  padding: 0.0001rem 0.8rem;
   border-left: 0.2rem solid #4e83a8;
   color: #6a737d;
 }
