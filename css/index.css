@@ -1615,6 +1615,123 @@ footer.footer-bg {
 #page-header a:hover {
   color: #fff;
 }
+#page-header.fixed {
+  position: fixed;
+  top: -60px;
+  z-index: 101;
+  background: rgba(255,255,255,0.8);
+  -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
+  box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  -ms-transition: -ms-transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+#page-header.fixed.open-sidebar .site-page {
+  display: none;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+#page-header.fixed a,
+#page-header.fixed #site-name,
+#page-header.fixed .toggle-menu {
+  color: #3b3a3a;
+  text-shadow: none;
+}
+#page-header.fixed a:hover,
+#page-header.fixed #site-name:hover,
+#page-header.fixed .toggle-menu:hover {
+  color: #4e83a8;
+}
+#page-header.visible {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#page-header.visible .menus_item_child {
+  background-color: #fff !important;
+}
+#page-header.visible .menus_item_child:before {
+  border-color: transparent transparent #fff !important;
+}
+#page-header #site-name {
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
+  font-weight: bold;
+  cursor: pointer;
+}
+#page-header .menus_item {
+  display: inline-block;
+  padding: 0 0 0 0.8rem;
+}
+#page-header .menus_item:hover .menus_item_child,
+#page-header .menus_item:focus .menus_item_child {
+  display: block;
+}
+#page-header .menus_item:hover .menus-expand,
+#page-header .menus_item:focus .menus-expand {
+  -webkit-transform: rotate(180deg) !important;
+  -moz-transform: rotate(180deg) !important;
+  -o-transform: rotate(180deg) !important;
+  -ms-transform: rotate(180deg) !important;
+  transform: rotate(180deg) !important;
+}
+#page-header .menus_item .menus-expand {
+  padding: 4px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#page-header .menus_item .menus_item_child {
+  position: absolute;
+  background-color: rgba(255,255,255,0.8);
+  padding: 8px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
+  display: none;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-animation: sub_menus 0.3s 0.1s ease both;
+  -moz-animation: sub_menus 0.3s 0.1s ease both;
+  -o-animation: sub_menus 0.3s 0.1s ease both;
+  -ms-animation: sub_menus 0.3s 0.1s ease both;
+  animation: sub_menus 0.3s 0.1s ease both;
+}
+#page-header .menus_item .menus_item_child:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255,255,255,0.8);
+}
+#page-header .menus_item .menus_item_child li {
+  list-style: none;
+  text-align: center;
+}
+#page-header .menus_item .menus_item_child li a {
+  color: #3b3a3a;
+  text-shadow: none;
+}
 #page-header .site-page {
   position: relative;
   margin-left: 0.6rem;
@@ -1711,7 +1828,7 @@ footer.footer-bg {
     top: 3rem;
     right: 0.8rem;
     display: none;
-    width: 8rem;
+    width: 6rem;
     background: rgba(255,255,255,0.9);
     cursor: pointer;
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.27);
@@ -1725,7 +1842,7 @@ footer.footer-bg {
     margin-left: 0;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
-    padding-left: 0.6rem;
+    padding-left: 0rem;
     color: #4c4948;
     text-shadow: none;
     font-size: 0.8rem;
@@ -1748,7 +1865,7 @@ footer.footer-bg {
   }
 }
 #page-header .site-page {
-  margin-left: 1rem;
+  margin-left: 0rem;
 }
 @media screen and (max-width: 768px) {
   #nav.full_page {
