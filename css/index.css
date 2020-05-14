@@ -1700,7 +1700,9 @@ footer.footer-bg {
 #page-header .menus_item .menus_item_child {
   position: absolute;
   background-color: rgba(255,255,255,0.8);
-  padding: 8px 10px;
+  padding: 0;
+  width: max-content;
+  margin-top: 8px;
   border-radius: 5px;
   -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
   box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
@@ -1728,8 +1730,14 @@ footer.footer-bg {
   list-style: none;
   text-align: center;
 }
+#page-header .menus_item .menus_item_child li:hover {
+  background: #4e83a8;
+}
 #page-header .menus_item .menus_item_child li a {
-  color: #3b3a3a;
+  display: inline-block;
+  padding: 0.3rem 0.4rem;
+  width: 100%;
+  color: #4c4948;
   text-shadow: none;
 }
 #page-header .site-page {
@@ -1747,7 +1755,7 @@ footer.footer-bg {
   z-index: -1;
   width: 0;
   height: 3px;
-  background-color: #81a9c4;
+  background-color: #78a2c0;
   content: "";
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
