@@ -80,13 +80,13 @@ $(function () {
 
   //-----------------------------------------------------------------------------------------------------
   // 首页fullpage添加
-  // 添加class 
+  // 添加class
   if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {} else {
     $('.full_page').css('background-attachment', 'fixed')
   }
 
   //---------------------------------------------------------------------------------------------------------
-  
+
   $(".scroll-down").on("click", function () {
 
     scrollTo('#content-outer')
@@ -270,27 +270,43 @@ $(function () {
     buttons: ["slideShow", "fullScreen", "thumbs", "close"]
   });
 
-  var galleryItem = $(".gallery-item");
-  var galleryList = [];
-  galleryItem.each(function (idx, elem) {
-    galleryList.push({
-      src: $(elem).data("url"),
-      opts: {
-        caption: $(elem).data("title")
-      }
-    });
-  });
-  galleryItem.on("click", function () {
-    $.fancybox.open(
-      galleryList, {
-        loop: true,
-        transitionEffect: "slide"
-      },
-      galleryItem.index(this)
-    );
-    return false;
+  /**
+   * justified-gallery 圖庫排版
+   */
+  var $justifiedGallery = $('.justified-gallery')
+  var isJustifiedGallery = false
+  if ($justifiedGallery.length) {
+    isJustifiedGallery = true
+    var $imgList = $justifiedGallery.find('img')
+    $imgList.unwrap()
+    if ($imgList.length) {
+      $imgList.each(function (i, o) {
+        if ($(o).attr('data-src')) $(o).attr('src', $(o).attr('data-src'))
+        var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
+        $(o).wrap('<a href="' +
+        lazyloadSrc  + '" data-fancybox="group" data-caption="' +
+        $(o).attr('alt') +
+        '" class="fancybox"></a>')
+      })
+    }
+    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css">')
+    loadScript('https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js', function () {
+      initJustifiedGallery($justifiedGallery)
+    })
 
-  });
+    var initJustifiedGallery = function (selector) {
+      selector.each(function (i, o) {
+        if ($(this).is(':visible')) {
+          $(this).justifiedGallery({
+            rowHeight: 200,
+            margins: 4
+          })
+        }
+      })
+    }
+  }
+
+
 
   //--------------------------------------------------------------------------------------------------------
   //lazy懶加載

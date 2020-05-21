@@ -43,12 +43,32 @@ function scrollTo(name) {
   var scroll_offset = $(name).offset();
   $("body,html").animate({
     scrollTop: scroll_offset.top
-  })  
+  })
 };
+
+function loadScript (url, callback) {
+  var script = document.createElement('script')
+  script.type = 'text/javascript'
+  if (script.readyState) { // IE
+    script.onreadystatechange = function () {
+      if (script.readyState === 'loaded' ||
+        script.readyState === 'complete') {
+        script.onreadystatechange = null
+        callback()
+      }
+    }
+  } else { // Others
+    script.onload = function () {
+      callback()
+    }
+  }
+  script.src = url
+  document.body.appendChild(script)
+};
+
 
 window.debounce = debounce
 
 window.throttle = throttle
 
 window.isMobile = isMobile
-
