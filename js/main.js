@@ -316,6 +316,7 @@ $(function () {
   $img.each(function () {
     var src_link = $(this).attr("src");
     $(this).attr("data-src", src_link);
+    $(this).attr("onerror", "onerror=null;src='/img/404.jpg'");
     $(this).removeAttr("src");
   })
 
