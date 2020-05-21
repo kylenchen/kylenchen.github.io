@@ -1496,7 +1496,7 @@ figure.gallery-group {
 @media screen and (max-width: 500px) {
   figure.gallery-group {
     width: 80%;
-    margin: 0.4rem 1.8rem;
+    margin: 0.4rem 1.6rem;
     left: 0;
   }
 }
