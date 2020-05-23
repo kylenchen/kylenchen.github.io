@@ -1868,7 +1868,6 @@ figure.gallery-group .gallery-group-name:after {
   position: absolute;
   background-color: rgba(255,255,255,0.8);
   padding: 0;
-  width: max-content;
   margin-top: 8px;
   border-radius: 5px;
   -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
@@ -2000,7 +1999,7 @@ figure.gallery-group .gallery-group-name:after {
   }
   #page-header .menus {
     position: absolute;
-    top: 3rem;
+    top: 2.5rem;
     right: 0.8rem;
     display: none;
     width: 6rem;
@@ -2025,6 +2024,24 @@ figure.gallery-group .gallery-group-name:after {
   }
   #page-header .menus a:hover {
     color: #4e83a8;
+  }
+  #page-header .menus_item_child {
+    position: relative !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    display: block !important;
+    margin-top: 0px !important;
+  }
+  #page-header .menus_item_child:before {
+    display: none !important;
+  }
+  #page-header .menus-expand {
+    -webkit-transform: rotate(180deg) !important;
+    -moz-transform: rotate(180deg) !important;
+    -o-transform: rotate(180deg) !important;
+    -ms-transform: rotate(180deg) !important;
+    transform: rotate(180deg) !important;
   }
   #page-header .search {
     right: 0.5rem;

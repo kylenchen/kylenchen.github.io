@@ -247,9 +247,10 @@ $(function () {
     imgList = $("#post-content img");
   }
   for (var i = 0; i < imgList.length; i++) {
+    var lazyload_src = imgList[i].src ? imgList[i].src : imgList.eq(i).attr("data-src")
     var $a = $(
       '<a href="' +
-      imgList[i].src +
+      lazyload_src +
       '" data-fancybox="group" data-caption="' +
       imgList[i].alt +
       '" class="fancybox"></a>'
