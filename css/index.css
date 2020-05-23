@@ -2032,6 +2032,7 @@ figure.gallery-group .gallery-group-name:after {
     background-color: transparent !important;
     display: block !important;
     margin-top: 0px !important;
+    height: 160px;
   }
   #page-header .menus_item_child:before {
     display: none !important;
