@@ -2030,19 +2030,11 @@ figure.gallery-group .gallery-group-name:after {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background-color: transparent !important;
-    display: block !important;
     margin-top: 0px !important;
     height: 160px;
   }
   #page-header .menus_item_child:before {
     display: none !important;
-  }
-  #page-header .menus-expand {
-    -webkit-transform: rotate(180deg) !important;
-    -moz-transform: rotate(180deg) !important;
-    -o-transform: rotate(180deg) !important;
-    -ms-transform: rotate(180deg) !important;
-    transform: rotate(180deg) !important;
   }
   #page-header .search {
     right: 0.5rem;
