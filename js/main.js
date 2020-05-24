@@ -1,20 +1,20 @@
-$(function () {
+$(function() {
   if ($('#sidebar').hasClass('auto_open')) {
     if ($(".sidebar-toc__content").children().length > 0) {
-      $(".layout_post").animate({}, function () {
+      $(".layout_post").animate({}, function() {
         {
-          setTimeout(function () {
+          setTimeout(function() {
             $('#page-header').addClass('open-sidebar')
             $("#toggle-sidebar").addClass('on')
             $('body').animate({
               paddingLeft: 300
             }, 200)
-            $('#sidebar').animate({}, function () {
+            $('#sidebar').animate({}, function() {
               $('#sidebar').css({
                 'transform': 'translateX(300px)'
               }, 200)
             })
-            $('#toggle-sidebar').animate({}, function () {
+            $('#toggle-sidebar').animate({}, function() {
               $('#toggle-sidebar').css({
                 'transform': 'rotateZ(180deg)',
                 'color': '#99a9bf',
@@ -34,7 +34,7 @@ $(function () {
 
   //-------------------------------------------------------------------------------------------------------
   //sidebar
-  $('#toggle-sidebar').on('click', function () {
+  $('#toggle-sidebar').on('click', function() {
 
     if (!isMobile() && $('#sidebar').is(':visible')) {
       var isOpen = $(this).hasClass('on')
@@ -45,13 +45,13 @@ $(function () {
           paddingLeft: 0
         }, 200)
 
-        $('#sidebar').animate({}, function () {
+        $('#sidebar').animate({}, function() {
           $('#sidebar').css({
             'transform': 'translateX(0px)'
           })
         })
 
-        $('#toggle-sidebar').animate({}, function () {
+        $('#toggle-sidebar').animate({}, function() {
           $('#toggle-sidebar').css({
             'transform': 'rotateZ(0deg)',
             'color': '#1F2D3D'
@@ -63,12 +63,12 @@ $(function () {
         $('body').animate({
           paddingLeft: 300
         }, 200)
-        $('#sidebar').animate({}, function () {
+        $('#sidebar').animate({}, function() {
           $('#sidebar').css({
             'transform': 'translateX(300px)'
           })
         })
-        $('#toggle-sidebar').animate({}, function () {
+        $('#toggle-sidebar').animate({}, function() {
           $('#toggle-sidebar').css({
             'transform': 'rotateZ(180deg)',
             'color': '#99a9bf'
@@ -87,7 +87,7 @@ $(function () {
 
   //---------------------------------------------------------------------------------------------------------
 
-  $(".scroll-down").on("click", function () {
+  $(".scroll-down").on("click", function() {
 
     scrollTo('#content-outer')
 
@@ -127,7 +127,7 @@ $(function () {
 
   //--------------------------------------------------------------------------------------------------------
   // bookmark
-  $.fancyConfirm = function (opts) {
+  $.fancyConfirm = function(opts) {
     opts = $.extend(true, {
       title: 'Are you sure?',
       message: '',
@@ -160,7 +160,7 @@ $(function () {
   }
 
   $('#bookmark-it').click(
-    function () {
+    function() {
       if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
         window.sidebar.addPanel(document.title, window.location.href, '');
       } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
@@ -200,8 +200,8 @@ $(function () {
             .animate({
               opacity: 1,
               right: 30
-            }, 450, function () {
-              setTimeout(function () {
+            }, 450, function() {
+              setTimeout(function() {
                 $(ctx).prev('.copy-notice').animate({
                   opacity: 0,
                   right: 0
@@ -214,8 +214,8 @@ $(function () {
             .animate({
               opacity: 1,
               right: 30
-            }, 650, function () {
-              setTimeout(function () {
+            }, 650, function() {
+              setTimeout(function() {
                 $(ctx).prev('.copy-notice').animate({
                   opacity: 0,
                   right: 0
@@ -229,7 +229,7 @@ $(function () {
       }
     }
     // click events
-    $('.code-area-wrap .fa-clipboard').on('click', function () {
+    $('.code-area-wrap .fa-clipboard').on('click', function() {
       var selection = window.getSelection()
       var range = document.createRange()
       range.selectNodeContents($(this).siblings('figure').find('.code pre')[0])
@@ -281,22 +281,22 @@ $(function () {
     var $imgList = $justifiedGallery.find('img')
     $imgList.unwrap()
     if ($imgList.length) {
-      $imgList.each(function (i, o) {
+      $imgList.each(function(i, o) {
         if ($(o).attr('data-src')) $(o).attr('src', $(o).attr('data-src'))
         var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
         $(o).wrap('<a href="' +
-        lazyloadSrc  + '" data-fancybox="group" data-caption="' +
-        $(o).attr('alt') +
-        '" class="fancybox"></a>')
+          lazyloadSrc + '" data-fancybox="group" data-caption="' +
+          $(o).attr('alt') +
+          '" class="fancybox"></a>')
       })
     }
     $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">')
-    loadScript('https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js', function () {
+    loadScript('https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js', function() {
       initJustifiedGallery($justifiedGallery)
     })
 
-    var initJustifiedGallery = function (selector) {
-      selector.each(function (i, o) {
+    var initJustifiedGallery = function(selector) {
+      selector.each(function(i, o) {
         if ($(this).is(':visible')) {
           $(this).justifiedGallery({
             rowHeight: 200,
@@ -314,7 +314,7 @@ $(function () {
   //把img的src删除，添加data-src,用于lozad.js
   var $img = $("#post img");
   $img.addClass("lozad");
-  $img.each(function () {
+  $img.each(function() {
     var src_link = $(this).attr("src");
     $(this).attr("data-src", src_link);
     $(this).attr("onerror", "onerror=null;src='/img/404.jpg'");
@@ -325,33 +325,59 @@ $(function () {
   observer.observe();
 
   //---------------------------------------------------------------------------------------------------------
-  /** head点击*/
-  $('.toggle-menu').on('click', function () {
-    if (!$('.menus').is(':visible')) {
+  /**
+   * 手機menu和toc按鈕點擊
+   * 顯示menu和toc的sidebar
+   */
+  function mobile_menu_close() {
+    if ($(".toggle-menu").hasClass("open")) {
       $(".toggle-menu").removeClass("open").addClass("close");
-      $('.menus').slideDown(300)
-    } else {
+      $('body').removeClass("open-mobile-menus");
+      $('#menu_mask').fadeOut()
+    }
+  }
+
+
+  $('.toggle-menu').on('click', function() {
+    if ($(".toggle-menu").hasClass("close")) {
       $(".toggle-menu").removeClass("close").addClass("open");
-      $('.menus').slideUp(200)
+      $('body').addClass("open-mobile-menus");
+      $('#menu_mask').fadeIn();
     }
   })
 
 
-  $(document).on('click touchstart', function (e) {
-    var flag = $('.menus')[0].contains(e.target) || $('.toggle-menu')[0].contains(e.target)
-    if (!flag && $('.toggle-menu').is(':visible')) {
-      $(".toggle-menu").removeClass("close").addClass("open");
-      $('.menus').slideUp(200)
-    }
+
+  $('#menu_mask').on('click touchstart', function() {
+    mobile_menu_close()
   })
 
-
-  $(window).on('resize', function (e) {
+  $(window).on('resize', function(e) {
     if (!$('.toggle-menu').is(':visible')) {
-      if (!$('.menus').is(':visible')) {
-        $(".toggle-menu").removeClass("open").addClass("close");
-        $('.menus').slideDown(300)
-      }
+      mobile_menu_close()
+    }
+  })
+
+
+  /**
+   * menu
+   * 側邊欄sub-menu 展開/收縮
+   * 解決menus在觸摸屏下，滑動屏幕menus_item_child不消失的問題（手機hover的bug)
+   */
+  $('#mobile-sidebar-menus .menus-expand').on('click', function() {
+    if ($(this).hasClass('menus-closed')) {
+      $(this).parents('.menus_item').find('.menus_item_child').slideDown()
+      $(this).removeClass('menus-closed')
+    } else {
+      $(this).parents('.menus_item').find('.menus_item_child').slideUp()
+      $(this).addClass('menus-closed')
+    }
+  })
+
+  $(window).on('touchmove', function(e) {
+    var $menusChild = $('#page-header .menus_item_child')
+    if ($menusChild.is(':visible')) {
+      $menusChild.css('display', 'none')
     }
   })
 
@@ -361,7 +387,7 @@ $(function () {
   $('.toc-child').hide()
 
   // main of scroll
-  $(window).scroll(throttle(function (event) {
+  $(window).scroll(throttle(function(event) {
     var currentTop = $(this).scrollTop()
     if (!isMobile()) {
       // percentage inspired by hexo-theme-next
@@ -379,7 +405,7 @@ $(function () {
       $('#page-header').addClass('fixed')
       if ($('#go-up').css('opacity') === '0') {
 
-        $('#go-up').animate({}, function () {
+        $('#go-up').animate({}, function() {
           $('#go-up').css({
             'opacity': '1',
             'transform': 'translateX(-30px) rotateZ(360deg)'
@@ -388,7 +414,7 @@ $(function () {
       }
       if ($('#rightside').css('opacity') === '0') {
 
-        $('#rightside').animate({}, function () {
+        $('#rightside').animate({}, function() {
           $('#rightside').css({
             'opacity': '1',
             'transform': 'translateX(-38px)'
@@ -402,14 +428,14 @@ $(function () {
         $('#page-header').removeClass('fixed').removeClass('visible')
       }
 
-      $('#go-up').animate({}, function () {
+      $('#go-up').animate({}, function() {
         $('#go-up').css({
           'opacity': '0',
           'transform': 'translateX(0) rotateZ(180deg) '
         })
       })
 
-      $('#rightside').animate({}, function () {
+      $('#rightside').animate({}, function() {
         $('#rightside').css({
           'opacity': '0',
           'transform': 'translateX(0)'
@@ -420,17 +446,17 @@ $(function () {
   }, 50, 100))
 
   // go up smooth scroll
-  $('#go-up').on('click', function () {
+  $('#go-up').on('click', function() {
     scrollTo('body')
   })
 
   // head scroll
-  $('#post-content').find('h1,h2,h3,h4,h5,h6').on('click', function (e) {
+  $('#post-content').find('h1,h2,h3,h4,h5,h6').on('click', function(e) {
     scrollToHead('#' + $(this).attr('id'))
   })
 
   // head scroll
-  $('.toc-link').on('click', function (e) {
+  $('.toc-link').on('click', function(e) {
     e.preventDefault()
     scrollToHead($(this).attr('href'))
   })
@@ -487,7 +513,7 @@ $(function () {
 
     var list = $('#post-content').find('h1,h2,h3,h4,h5,h6')
     var currentId = ''
-    list.each(function () {
+    list.each(function() {
       var head = $(this)
       if (top > head.offset().top - 25) {
         currentId = '#' + $(this).attr('id')
@@ -523,7 +549,7 @@ $(function () {
   }
 
   //代碼框雙擊全屏
-  $('figure').on('dblclick', function (e) {
+  $('figure').on('dblclick', function(e) {
     if (e.target !== this)
       return;
     $(this).toggleClass('code_full_page');
@@ -532,7 +558,7 @@ $(function () {
 
 
   //閲讀模式
-  $("#readmode").click(function () {
+  $("#readmode").click(function() {
 
     if (Cookies.get("night-mode") == "night") {
       $('body').toggleClass('night-mode');
@@ -548,12 +574,12 @@ $(function () {
 
 
   //閲讀模式下字體調整
-  $("#font_plus").click(function () {
+  $("#font_plus").click(function() {
     var font_size_record = parseFloat($('body').css('font-size'))
     $('body').css('font-size', font_size_record + 1)
   });
 
-  $("#font_minus").click(function () {
+  $("#font_minus").click(function() {
     var font_size_record = parseFloat($('body').css('font-size'))
     $('body').css('font-size', font_size_record - 1)
   });
