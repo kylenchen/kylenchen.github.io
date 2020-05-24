@@ -1953,7 +1953,7 @@ figure.gallery-group .gallery-group-name:after {
   right: -254px;
   width: 250px;
   height: 101vh;
-  background: #fff;
+  background: #f6f8fa;
   cursor: pointer;
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.27);
   box-shadow: 0 0 4px rgba(0,0,0,0.27);
