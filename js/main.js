@@ -333,6 +333,8 @@ $(function() {
     if ($(".toggle-menu").hasClass("open")) {
       $(".toggle-menu").removeClass("open").addClass("close");
       $('body').removeClass("open-mobile-menus");
+      $('.toggle-menu').toggleClass('timesicon');
+      $('.search').toggleClass('dissearch');
       $('#menu_mask').fadeOut()
     }
   }
@@ -342,6 +344,8 @@ $(function() {
     if ($(".toggle-menu").hasClass("close")) {
       $(".toggle-menu").removeClass("close").addClass("open");
       $('body').addClass("open-mobile-menus");
+      $('.toggle-menu').toggleClass('timesicon');
+      $('.search').toggleClass('dissearch');
       $('#menu_mask').fadeIn();
     }
   })

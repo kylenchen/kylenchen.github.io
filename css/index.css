@@ -34,6 +34,11 @@ body {
 *::-webkit-scrollbar-track {
   background-color: transparent;
 }
+@media screen and (max-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 4px;
+  }
+}
 h1,
 h2,
 h3,
@@ -1911,6 +1916,12 @@ figure.gallery-group .gallery-group-name:after {
     right: 0.5rem;
   }
   #page-header .search span {
+    display: none;
+  }
+  #page-header .timesicon:before {
+    content: "\f00d";
+  }
+  #page-header .dissearch {
     display: none;
   }
 }
