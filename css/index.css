@@ -4513,7 +4513,7 @@ footer {
   border: 0.15rem solid #4e83a8;
   border-radius: 0.3rem;
   background: #fff;
-  content: "";
+  content: '';
   line-height: 0.3rem;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
