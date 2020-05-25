@@ -1932,7 +1932,7 @@ figure.gallery-group .gallery-group-name:after {
     width: 0;
   }
   .menus_item .site-page:hover::after {
-    width: 44%;
+    width: 0;
   }
 }
 #mobile-sidebar #menu_mask {
