@@ -1869,6 +1869,10 @@ figure.gallery-group .gallery-group-name:after {
   color: #3b3a3a;
   text-shadow: none;
 }
+#search_button {
+  display: inline;
+  padding: 0 0 0 0.7rem;
+}
 .site-page {
   position: relative;
   padding-bottom: 0.3rem;
