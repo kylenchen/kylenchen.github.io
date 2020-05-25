@@ -1873,14 +1873,14 @@ figure.gallery-group .gallery-group-name:after {
   display: inline;
   padding: 0 0 0 0.7rem;
 }
-#page-header .site-page {
+.site-page {
   position: relative;
   padding-bottom: 0.3rem;
   text-shadow: 0.05rem 0.05rem 0.1rem rgba(0,0,0,0.3);
   font-size: 0.7rem;
   cursor: pointer;
 }
-#page-header .site-page::after {
+.site-page::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1895,7 +1895,7 @@ figure.gallery-group .gallery-group-name:after {
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-#page-header .site-page:hover::after {
+.site-page:hover::after {
   width: 100%;
 }
 @media screen and (min-width: 768px) {
