@@ -3617,6 +3617,8 @@ img:hover {
 @media screen and (max-width: 900px) {
   #recent-posts .recent-post-item {
     margin-top: 15px;
+    -webkit-box-shadow: 0 4px 8px 6px rgba(7,17,27,0.06) !important;
+    box-shadow: 0 4px 8px 6px rgba(7,17,27,0.06) !important;
   }
 }
 #recent-posts .is_left {
