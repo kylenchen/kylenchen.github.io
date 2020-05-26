@@ -313,12 +313,12 @@ $(function() {
   //lazy懶加載
   //把img的src删除，添加data-src,用于lozad.js
   var $img = $("#post img");
-  $img.addClass("lozad");
+
   $img.each(function() {
     var src_link = $(this).attr("src");
     $(this).attr("data-src", src_link);
     $(this).attr("onerror", "onerror=null;src='/img/404.jpg'");
-    $(this).removeAttr("src");
+
   })
 
   const observer = lozad(); // lazy loads elements with default selector as '.lozad'
