@@ -20,7 +20,7 @@ body {
   min-height: 100%;
   background: #fff;
   color: #4c4948;
-  font-size: 14px;
+  font-size: 14.5px;
   font-family: Lato, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 2;
 }
@@ -509,10 +509,10 @@ table td {
   margin: 1rem 0;
   padding: 0;
   padding-top: 1.4rem;
-  background: #292d3e;
-  color: #a6accd;
-  font-size: 14px;
-  line-height: 20px;
+  background: #f7f7f7;
+  color: #4d4d4c;
+  font-size: 14.5px;
+  line-height: 25px;
 }
 figure.highlight {
   position: relative;
@@ -537,12 +537,12 @@ blockquote {
   background: rgba(27,31,35,0.05);
   color: #e96900;
   word-wrap: break-word;
-  font-size: 14px;
+  font-size: 14.5px;
 }
 .article-container pre code {
   padding: 0;
   background: none;
-  color: #a6accd;
+  color: #4d4d4c;
   text-shadow: none;
 }
 .article-container .highlight {
@@ -555,7 +555,7 @@ blockquote {
   z-index: 0;
   min-width: 100%;
   height: 1.4rem;
-  background: #1f222f;
+  background: #eaeaea;
   content: "";
 }
 .article-container .highlight pre {
@@ -564,8 +564,8 @@ blockquote {
   border: none;
 }
 .article-container .highlight .line::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container .highlight table {
   position: relative;
@@ -580,7 +580,7 @@ blockquote {
   margin-top: -1.4rem;
   padding: 0 0.7rem;
   width: 5rem;
-  color: #a6accd;
+  color: #4d4d4c;
   content: "Code";
   font-weight: bold;
   font-size: 0.8rem;
@@ -592,7 +592,7 @@ blockquote {
   z-index: 0;
   width: 100%;
   height: 1.4rem;
-  background: #1f222f;
+  background: #eaeaea;
   content: "";
 }
 .article-container .highlight td {
@@ -607,7 +607,7 @@ blockquote {
   padding: 0.2em 0 0.2em 0.7rem;
   width: 100%;
   height: 1.4em;
-  color: #a6accd;
+  color: #4d4d4c;
   font-size: 1em;
   line-height: 1em;
 }
@@ -630,10 +630,10 @@ blockquote {
 .article-container .highlight figcaption a {
   float: right;
   padding-right: 10px;
-  color: #a6accd;
+  color: #4d4d4c;
 }
 .article-container .highlight figcaption a:hover {
-  border-bottom-color: #a6accd;
+  border-bottom-color: #4d4d4c;
 }
 .article-container .highlight figcaption+table {
   margin-top: 1em;
@@ -647,15 +647,15 @@ blockquote {
 .article-container .highlight .gutter pre {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  background-color: #292d3e;
-  color: #3a3f58;
+  background-color: #eff2f3;
+  color: #869194;
   text-align: right;
 }
 .article-container .highlight .code pre {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   width: 100%;
-  background-color: #292d3e;
+  background-color: #f7f7f7;
 }
 .article-container .highlight .line {
   height: 1rem;
@@ -682,14 +682,14 @@ blockquote {
   background: #800000;
 }
 .article-container pre .meta {
-  color: #c792ea;
+  color: #8959a8;
 }
 .article-container pre .comment {
-  color: #676e95;
+  color: #8e908c;
 }
 .article-container pre .comment::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .variable,
 .article-container pre .attribute,
@@ -703,7 +703,7 @@ blockquote {
 .article-container pre .tag .name,
 .article-container pre .css .class,
 .article-container pre .css .pseudo {
-  color: #ff5370;
+  color: $highlight-red;
 }
 .article-container pre .variable::selection,
 .article-container pre .attribute::selection,
@@ -717,15 +717,15 @@ blockquote {
 .article-container pre .tag .name::selection,
 .article-container pre .css .class::selection,
 .article-container pre .css .pseudo::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .tag {
-  color: #89ddff;
+  color: #3e999f;
 }
 .article-container pre .tag::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .number,
 .article-container pre .preprocessor,
@@ -733,7 +733,7 @@ blockquote {
 .article-container pre .params,
 .article-container pre .constant,
 .article-container pre .command {
-  color: #f78c6c;
+  color: #f5871f;
 }
 .article-container pre .number::selection,
 .article-container pre .preprocessor::selection,
@@ -741,15 +741,15 @@ blockquote {
 .article-container pre .params::selection,
 .article-container pre .constant::selection,
 .article-container pre .command::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .built_in {
-  color: #ffcb6b;
+  color: #eab700;
 }
 .article-container pre .built_in::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .ruby .class .title,
 .article-container pre .css .rules .attribute,
@@ -762,7 +762,7 @@ blockquote {
 .article-container pre .special,
 .article-container pre .number,
 .article-container pre .formula {
-  color: #c3e88d;
+  color: #718c00;
 }
 .article-container pre .ruby .class .title::selection,
 .article-container pre .css .rules .attribute::selection,
@@ -775,19 +775,19 @@ blockquote {
 .article-container pre .special::selection,
 .article-container pre .number::selection,
 .article-container pre .formula::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .keyword,
 .article-container pre .title,
 .article-container pre .css .hexcolor {
-  color: #89ddff;
+  color: #3e999f;
 }
 .article-container pre .keyword::selection,
 .article-container pre .title::selection,
 .article-container pre .css .hexcolor::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .function,
 .article-container pre .python .decorator,
@@ -797,7 +797,7 @@ blockquote {
 .article-container pre .perl .sub,
 .article-container pre .javascript .title,
 .article-container pre .coffeescript .title {
-  color: #82aaff;
+  color: #4271ae;
 }
 .article-container pre .function::selection,
 .article-container pre .python .decorator::selection,
@@ -807,17 +807,17 @@ blockquote {
 .article-container pre .perl .sub::selection,
 .article-container pre .javascript .title::selection,
 .article-container pre .coffeescript .title::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 .article-container pre .tag .attr,
 .article-container pre .javascript .function {
-  color: #c792ea;
+  color: #8959a8;
 }
 .article-container pre .tag .attr::selection,
 .article-container pre .javascript .function::selection {
-  background: rgba(113,124,180,0.314);
-  color: #a6accd;
+  background: #d6d6d6;
+  color: #4d4d4c;
 }
 #aside_content {
   width: 25%;
@@ -3128,7 +3128,7 @@ img:hover {
   top: 0.4rem;
   right: 10px;
   z-index: 1;
-  color: #89ddff;
+  color: #3e999f;
   cursor: pointer;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -3137,15 +3137,15 @@ img:hover {
   transition: color 0.2s;
 }
 .fa-clipboard:hover {
-  color: #3bc6ff;
+  color: #327a7f;
 }
 .copy-notice {
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
-  background: #1f222f;
-  color: #89ddff;
+  background: #eaeaea;
+  color: #3e999f;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
