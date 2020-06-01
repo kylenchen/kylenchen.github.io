@@ -522,11 +522,7 @@ blockquote {
   padding: 0.0001rem 0.8rem;
   border-left: 0.2rem solid #4e83a8;
   color: #6a737d;
-  background-image: -webkit-linear-gradient(left, rgba(78,131,168,0.271) 0%, rgba(78,131,168,0.169) 100%);
-  background-image: -moz-linear-gradient(left, rgba(78,131,168,0.271) 0%, rgba(78,131,168,0.169) 100%);
-  background-image: -o-linear-gradient(left, rgba(78,131,168,0.271) 0%, rgba(78,131,168,0.169) 100%);
-  background-image: -ms-linear-gradient(left, rgba(78,131,168,0.271) 0%, rgba(78,131,168,0.169) 100%);
-  background-image: linear-gradient(to right, rgba(78,131,168,0.271) 0%, rgba(78,131,168,0.169) 100%);
+  background-color: rgba(66,185,131,0.1);
 }
 .article-container pre,
 .article-container code {
@@ -3282,6 +3278,9 @@ img:hover {
 .layout_post #post a {
   text-decoration: none;
   color: #4e83a8;
+}
+.layout_post #post a:hover {
+  text-decoration: underline;
 }
 .read-mode {
   background: #faf9de;
