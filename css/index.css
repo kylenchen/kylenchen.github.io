@@ -3828,7 +3828,7 @@ a.article-meta__tags:hover {
     height: 12rem;
   }
   #top-container #post-info {
-    bottom: 3rem;
+    bottom: 2rem;
   }
 }
 @media screen and (max-width: 900px) {
