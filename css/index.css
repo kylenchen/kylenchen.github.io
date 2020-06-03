@@ -1879,10 +1879,6 @@ figure.gallery-group .gallery-group-name:after {
   color: #3b3a3a;
   text-shadow: none;
 }
-#page-header #search_button {
-  display: inline;
-  padding: 1px 0 0 0;
-}
 .site-page {
   position: relative;
   padding-bottom: 0.3rem;
@@ -1925,6 +1921,10 @@ figure.gallery-group .gallery-group-name:after {
   }
   #page-header .toggle-menu {
     display: block;
+  }
+  #page-header #search_button {
+    display: inline;
+    padding: 1px 0 0 0;
   }
   #page-header .search {
     right: 0.5rem;
