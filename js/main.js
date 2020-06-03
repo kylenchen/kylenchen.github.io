@@ -240,6 +240,27 @@ $(function() {
       selection.removeAllRanges()
     })
   }
+
+// 代碼框展開 收缩
+
+  var highlight_shrink = GLOBAL_CONFIG.highlight_shrink
+  if (highlight_shrink == 'true') {
+    var $code_expand = $('<i class="fa fa-angle-down code-expand code-closed" aria-hidden="true"></i>')
+  } else {
+    var $code_expand = $('<i class="fa fa-angle-down code-expand" aria-hidden="true"></i>')
+  }
+  $('.code-area-wrap').prepend($code_expand)
+  $('.code-area-wrap .code-expand').on('click', function () {
+    if ($(this).hasClass('code-closed')) {
+      $(this).siblings('figure').find('tbody').show();
+      $(this).removeClass('code-closed');
+    } else {
+      $(this).siblings('figure').find('tbody').hide();
+      $(this).addClass('code-closed');
+    }
+  })
+
+
   //---------------------------------------------------------------------------------------------------
   //fancybox
   var imgList = $(".recent-post-info  img");

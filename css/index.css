@@ -577,6 +577,7 @@ blockquote {
   z-index: 1;
   display: inline-block;
   margin-top: -1.4rem;
+  margin-left: 1.2rem;
   padding: 0 0.7rem;
   width: 5rem;
   color: #4d4d4c;
@@ -3087,6 +3088,36 @@ img:hover {
 }
 .fa-clipboard:hover {
   color: #327a7f;
+}
+.code-expand {
+  position: absolute;
+  top: 0;
+  color: #4d4d4c;
+  padding: 7px 10px;
+  z-index: 1;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.code-closed {
+  -webkit-transform: rotate(-90deg) !important;
+  -moz-transform: rotate(-90deg) !important;
+  -o-transform: rotate(-90deg) !important;
+  -ms-transform: rotate(-90deg) !important;
+  transform: rotate(-90deg) !important;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .copy-notice {
   position: absolute;
