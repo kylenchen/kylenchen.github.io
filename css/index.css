@@ -1881,7 +1881,7 @@ figure.gallery-group .gallery-group-name:after {
 }
 #page-header #search_button {
   display: inline;
-  padding: 0 0 0 0.7rem;
+  padding: 1px 0 0 0;
 }
 .site-page {
   position: relative;
