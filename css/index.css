@@ -506,6 +506,9 @@ table td {
 .article-container figure.highlight.markdown table:before {
   content: "markdown";
 }
+.article-container figure.highlight.json table:before {
+  content: "json";
+}
 .article-container pre,
 .article-container .highlight {
   overflow: auto;
