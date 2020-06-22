@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenbw.top/"/>
-  <updated>2020-06-03T04:50:40.213Z</updated>
+  <updated>2020-06-22T15:01:10.013Z</updated>
   <id>https://chenbw.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows系统添加鼠标右键“打开方式”选项</title>
+    <link href="https://chenbw.top/posts/openwith/"/>
+    <id>https://chenbw.top/posts/openwith/</id>
+    <published>2020-06-22T14:41:39.000Z</published>
+    <updated>2020-06-22T15:01:10.013Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>电脑可以正常使用，可是鼠标右键的“打开方式”不见了。电脑鼠标右键没有“打开方式”的选项怎么办？</p></blockquote><h2 id="方法-步骤"><a href="#方法-步骤" class="headerlink" title="方法/步骤"></a>方法/步骤</h2><ul><li><p>使用键盘的<code>【win+R】</code>键打开输入<code>regedit</code>，按回车键。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/1.png" alt=""></p></li><li><p>打开“注册表编辑器”，找到<code>HKEY_CLASSES_ROOT</code>,展开<code>*</code>文件，新建<code>OpenWith</code>文件，双击右侧窗口“默认”，编辑字符串，数值数据填写为“打开方式”。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/2.png" alt=""></p></li><li><p><code>OpenWith</code>文件下，新建<code>Command</code>文件, 双击右侧窗口“默认”，编辑字符串，数值数据填写为“<code>C:\Windows\rundll32.exe Shell32.dll,OpenAs_RunDLL %1</code>” 。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/3.png" alt=""></p></li><li><p>关闭“注册表编辑器”，回到电脑桌面，文件鼠标右键可见“打开方式”。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/4.png" alt=""></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="电脑" scheme="https://chenbw.top/categories/%E7%94%B5%E8%84%91/"/>
+    
+    
+      <category term="Windows" scheme="https://chenbw.top/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>PyCharm2019.3.3安装与激活教程</title>
