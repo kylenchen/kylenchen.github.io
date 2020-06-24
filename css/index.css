@@ -1316,10 +1316,17 @@ blockquote {
   font-size: 0.875em !important;
 }
 .vcomment .vcomment-body .vat {
-  background: #4e83a8 !important;
+  color: #4e83a8 !important;
+  border: 1px solid #4e83a8;
+  border-radius: 5px !important;
 }
 .vcomment .col {
   display: none !important;
+}
+@media screen and (max-width: 600px) {
+  .vcomment .vcomment-body {
+    padding: 0.8em 0.8em 0 0 !important;
+  }
 }
 .flink .md-links {
   min-height: calc(100% - 120px - 5pc - 6em);
