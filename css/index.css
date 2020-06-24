@@ -1298,6 +1298,29 @@ blockquote {
 #disqus_thread {
   margin-top: 1rem;
 }
+.vcomment button {
+  background-color: #4e83a8 !important;
+  color: #fff;
+  border-color: #fff;
+  line-height: 1.8 !important;
+  padding: 0.3em 1em !important;
+}
+.vcomment .vinputs-area .auth-section .input-wrapper input {
+  font-size: 0.875em !important;
+}
+.vcomment ::-webkit-scrollbar-thumb {
+  background-color: #4e83a8 !important;
+}
+.vcomment .vcomment-body {
+  padding: 0.8rem !important;
+  font-size: 0.875em !important;
+}
+.vcomment .vcomment-body .vat {
+  background: #4e83a8 !important;
+}
+.vcomment .col {
+  display: none !important;
+}
 .flink .md-links {
   min-height: calc(100% - 120px - 5pc - 6em);
   text-align: center;
