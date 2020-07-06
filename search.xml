@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>Windows系统添加鼠标右键“打开方式”选项</title>
+      <title>Windows添加鼠标右键“打开方式”选项</title>
       <link href="/posts/openwith/"/>
       <url>/posts/openwith/</url>
       
@@ -56,11 +56,11 @@
     
     
     <entry>
-      <title>128M或以下小内存系统systemd重启报错的问题</title>
+      <title>小内存系统systemd重启报错的问题</title>
       <link href="/posts/systemd/"/>
       <url>/posts/systemd/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在小内存Debian 9 x64版本的服务器，安装需要重启systemd服务的软件时，systemd总会报错:</p><p><strong>Run ‘systemctl daemon-reload’ to reload units.<br>Failed to reload daemon: Refusing to reload, not enough space available on /run/systemd. Currently, 13.0M are free, but a safety buffer of 16.0M is enforced</strong>.</p><p>报错是因为<strong>/run</strong>太小，从报错可以看出，<strong>safety buffer</strong>为16.0M，则可修改<strong>/etc/fstab</strong>，给<strong>/run</strong>分配更大一点的<strong>safety buffer</strong>。</p><p>在<strong>/etc</strong>路径下找到<strong>fstab</strong>，在内容结尾追加:</p><p><strong>tmpfs /run tmpfs nosuid,noexec,size=50M,nr_inodes=4096 0 0</strong></p><p>重启服务</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在128M或以下小内存Debian 9 x64版本的服务器，安装需要重启systemd服务的软件时，systemd总会报错:</p><p><strong>Run ‘systemctl daemon-reload’ to reload units.<br>Failed to reload daemon: Refusing to reload, not enough space available on /run/systemd. Currently, 13.0M are free, but a safety buffer of 16.0M is enforced</strong>.</p><p>报错是因为<strong>/run</strong>太小，从报错可以看出，<strong>safety buffer</strong>为16.0M，则可修改<strong>/etc/fstab</strong>，给<strong>/run</strong>分配更大一点的<strong>safety buffer</strong>。</p><p>在<strong>/etc</strong>路径下找到<strong>fstab</strong>，在内容结尾追加:</p><p><strong>tmpfs /run tmpfs nosuid,noexec,size=50M,nr_inodes=4096 0 0</strong></p><p>重启服务</p>]]></content>
       
       
       <categories>
@@ -191,7 +191,7 @@
     
     
     <entry>
-      <title>MySQL数据库下载与安装配置(for Windows)</title>
+      <title>MySQL数据库下载与安装配置(Windows)</title>
       <link href="/posts/install-mysql/"/>
       <url>/posts/install-mysql/</url>
       

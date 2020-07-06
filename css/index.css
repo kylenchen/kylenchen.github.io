@@ -252,7 +252,7 @@ table td {
 #site-name,
 #aside_content .author-info__name,
 #aside_content .author-info__description {
-  font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-family: Georgia, -apple-system, "Nimbus Roman No9 L", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 #rightside {
   right: -38px;
@@ -2551,7 +2551,7 @@ figure.gallery-group .gallery-group-name:after {
   margin-bottom: 0.3rem;
   color: #2e2e2e;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -3886,7 +3886,7 @@ a.article-meta__tags:hover {
   padding: 8rem 1rem 7rem;
 }
 #page_site-info #site-title {
-  font-family: STXingkai, PingFang SC, Hiragino Sans GB, "STXingkai", "Microsoft JhengHei", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Ma Shan Zheng, PingFang SC, Hiragino Sans GB, "Ma Shan Zheng", "Microsoft JhengHei", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 @media screen and (max-width: 900px) {
   #page,
@@ -3907,7 +3907,7 @@ a.article-meta__tags:hover {
     padding: 0px;
   }
   .recent-post-info {
-    padding: 20px 10px !important;
+    padding: 1rem 1.1rem 1.5rem;
     width: 100%;
   }
   #page_site-info {
@@ -3924,6 +3924,7 @@ a.article-meta__tags:hover {
   .recent-post-item {
     height: auto !important;
     border-radius: 8px;
+    padding: 0px 5px !important;
   }
   .recent-post-item,
   #page,
@@ -3939,7 +3940,7 @@ a.article-meta__tags:hover {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background: none !important;
-    padding: 0px 20px 0 !important;
+    padding: 0px 20px 0;
   }
   .recent-post-item:hover,
   #page:hover,

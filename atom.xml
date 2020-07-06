@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Kylen Tech Life</title>
+  <title>Tech &amp; Life</title>
   
   <subtitle>Sharing Change the World</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenbw.top/"/>
-  <updated>2020-06-22T15:01:10.013Z</updated>
+  <updated>2020-07-06T02:49:16.215Z</updated>
   <id>https://chenbw.top/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Windows系统添加鼠标右键“打开方式”选项</title>
+    <title>Windows添加鼠标右键“打开方式”选项</title>
     <link href="https://chenbw.top/posts/openwith/"/>
     <id>https://chenbw.top/posts/openwith/</id>
     <published>2020-06-22T14:41:39.000Z</published>
-    <updated>2020-06-22T15:01:10.013Z</updated>
+    <updated>2020-07-06T02:49:16.215Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>电脑可以正常使用，可是鼠标右键的“打开方式”不见了。电脑鼠标右键没有“打开方式”的选项怎么办？</p></blockquote><h2 id="方法-步骤"><a href="#方法-步骤" class="headerlink" title="方法/步骤"></a>方法/步骤</h2><ul><li><p>使用键盘的<code>【win+R】</code>键打开输入<code>regedit</code>，按回车键。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/1.png" alt=""></p></li><li><p>打开“注册表编辑器”，找到<code>HKEY_CLASSES_ROOT</code>,展开<code>*</code>文件，新建<code>OpenWith</code>文件，双击右侧窗口“默认”，编辑字符串，数值数据填写为“打开方式”。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/2.png" alt=""></p></li><li><p><code>OpenWith</code>文件下，新建<code>Command</code>文件, 双击右侧窗口“默认”，编辑字符串，数值数据填写为“<code>C:\Windows\rundll32.exe Shell32.dll,OpenAs_RunDLL %1</code>” 。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/3.png" alt=""></p></li><li><p>关闭“注册表编辑器”，回到电脑桌面，文件鼠标右键可见“打开方式”。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/openwith/4.png" alt=""></p></li></ul>]]></content>
     
@@ -69,13 +69,13 @@
   </entry>
   
   <entry>
-    <title>128M或以下小内存系统systemd重启报错的问题</title>
+    <title>小内存系统systemd重启报错的问题</title>
     <link href="https://chenbw.top/posts/systemd/"/>
     <id>https://chenbw.top/posts/systemd/</id>
     <published>2020-04-30T06:30:47.000Z</published>
-    <updated>2020-05-29T13:34:30.066Z</updated>
+    <updated>2020-07-06T02:48:53.212Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在小内存Debian 9 x64版本的服务器，安装需要重启systemd服务的软件时，systemd总会报错:</p><p><strong>Run ‘systemctl daemon-reload’ to reload units.<br>Failed to reload daemon: Refusing to reload, not enough space available on /run/systemd. Currently, 13.0M are free, but a safety buffer of 16.0M is enforced</strong>.</p><p>报错是因为<strong>/run</strong>太小，从报错可以看出，<strong>safety buffer</strong>为16.0M，则可修改<strong>/etc/fstab</strong>，给<strong>/run</strong>分配更大一点的<strong>safety buffer</strong>。</p><p>在<strong>/etc</strong>路径下找到<strong>fstab</strong>，在内容结尾追加:</p><p><strong>tmpfs /run tmpfs nosuid,noexec,size=50M,nr_inodes=4096 0 0</strong></p><p>重启服务</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在128M或以下小内存Debian 9 x64版本的服务器，安装需要重启systemd服务的软件时，systemd总会报错:</p><p><strong>Run ‘systemctl daemon-reload’ to reload units.<br>Failed to reload daemon: Refusing to reload, not enough space available on /run/systemd. Currently, 13.0M are free, but a safety buffer of 16.0M is enforced</strong>.</p><p>报错是因为<strong>/run</strong>太小，从报错可以看出，<strong>safety buffer</strong>为16.0M，则可修改<strong>/etc/fstab</strong>，给<strong>/run</strong>分配更大一点的<strong>safety buffer</strong>。</p><p>在<strong>/etc</strong>路径下找到<strong>fstab</strong>，在内容结尾追加:</p><p><strong>tmpfs /run tmpfs nosuid,noexec,size=50M,nr_inodes=4096 0 0</strong></p><p>重启服务</p>]]></content>
     
     <summary type="html">
     
@@ -204,11 +204,11 @@
   </entry>
   
   <entry>
-    <title>MySQL数据库下载与安装配置(for Windows)</title>
+    <title>MySQL数据库下载与安装配置(Windows)</title>
     <link href="https://chenbw.top/posts/install-mysql/"/>
     <id>https://chenbw.top/posts/install-mysql/</id>
     <published>2019-04-26T15:37:48.000Z</published>
-    <updated>2020-05-29T13:33:46.221Z</updated>
+    <updated>2020-07-06T02:50:39.987Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="下载MySQL"><a href="#下载MySQL" class="headerlink" title="下载MySQL"></a>下载MySQL</h2><p>打开MySQL的官网<a href="http://www.mysql.com" target="_blank" rel="noopener">www.mysql.com</a>, 发现有一个DOWNLOADS，找到MySQL Community Server。<a id="more"></a><br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/install-mysql/1.png" alt=""></p><p>选择操作系统及其版本，点击右侧的箭头进行选择<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/install-mysql/2.png" alt=""></p><p>选择相应的版本下载，这里mysql-5.7.26-winx64为例，<br>如果你没有注册登录下载页面时，官网会提示你注册一个账号进行下载，当然你也可以选择<code>No thanks, just start my download</code>，无需注册即可下载MYSQL的解压包。<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/install-mysql/3.png" alt=""></p><p>下载完成后，压缩文件，可以放在其他盘</p><h2 id="MySQL环境配置"><a href="#MySQL环境配置" class="headerlink" title="MySQL环境配置"></a>MySQL环境配置</h2><ul><li>新建<code>my.ini</code>文件<br>打开解压后的文件夹，就是D盘下的mysql-5.7.26-winx64 文件夹，新建一个<code>my.ini</code>文件后双击它，用记事本打开， 输入如下内容：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port&#x3D;3306</span><br><span class="line">default-character-set&#x3D;utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"># 设置为自己MYSQL的安装目录</span><br><span class="line">basedir&#x3D;D:\mysql-5.7.26-winx64</span><br><span class="line"># 设置为MYSQL的数据目录</span><br><span class="line">datadir&#x3D;D:\mysql-5.7.26-winx64\data</span><br><span class="line">port&#x3D;3306</span><br><span class="line">character_set_server&#x3D;utf8</span><br><span class="line">sql_mode&#x3D;NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER</span><br><span class="line">#开启查询缓存</span><br><span class="line">explicit_defaults_for_timestamp&#x3D;true</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure><ul><li>创建环境变量<br><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/install-mysql/4.png" alt=""></li></ul><p>使用cmd运行命令，完成配置，需管理员身份运行cmd或powershell。</p><p> 在powershell或cmd窗口中，切换到mysql的bin目录, 完成配置。</p><ul><li>mysql启动</li></ul><p>首先输入mysqld –initialize 命令，它表示初始化mysql，生成data文件夹中的文件。如果没有报错，就表示初始化完成。　　　　<br>输入 mysqld -install 命令，安装MySQL. 如果出现Service successfully installed 说明注册成功了  因为我的已经注册好了，所以会出现下图， 已存在。</p><p>可以启动服务器了 net start mysql 命令启动服务器。关闭服务器用net stop mysql</p><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/install-mysql/5.png" alt=""></p><ul><li>MySQL 登录和退出<br>这涉及到MySQL 命令的常用参数： -u: u代表username, 表示用户名; -p: p 代表password, 表示登录密码； -h: host-name主机名； -P: port 端口。　　所以我们要登录MySQL，需要提供用户名，密码，主机名，端口号信息。语法  mysql [-u username] [-h host] [-p[password]];  安装MySQL后，我们会得到初始的用户名root, 但没有初始密码，但输入密码怎么办？我们只需键入mysql即可。如果访问本地服务器的话和使用mysql的默认端口时，-h和-P可以不写。 现在我们就登录一下， 在这之前要先启动mysql服务器。这里还是要以管理员的身份运行powershell　　当我们在命令行中输入mysql -u root -p 后，提示我们输入密码，这时输入mysql， 就可以登录到mysql 了</li></ul><p><img src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/install-mysql/6.png" alt=""></p><p>当然操作完成后还是要退出的，mysql退出有如下三种方法。注意，每一行语句要以; 分号结尾。如果按enter，你会发现它会另起一行，有一个箭头，表法该语句并没有结束。 exit;  quit;  \q;  </p><hr><p><strong>参考</strong></p><ul><li>SamWeb | <a href="https://www.cnblogs.com/SamWeb/p/7922490.html" target="_blank" rel="noopener">MySQL数据库安装配置</a></li></ul>]]></content>
     
