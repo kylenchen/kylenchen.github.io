@@ -1868,7 +1868,8 @@ figure.gallery-group .gallery-group-name:after {
 }
 #page-header #site-name {
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-family: Galada, -apple-system, "Nimbus Roman No9 L", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Ma Shan Zheng", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   cursor: pointer;
 }
 #page-header .menus_item {
@@ -1981,7 +1982,6 @@ figure.gallery-group .gallery-group-name:after {
   }
   #page-header #search_button {
     display: inline;
-    padding: 1px 0 0 0;
   }
   #page-header .search {
     right: 0.5rem;
@@ -2917,10 +2917,6 @@ figure.gallery-group .gallery-group-name:after {
 #top-container #top-img {
   padding: 0;
   border: none;
-}
-#top-container #site-name {
-  font-weight: 800;
-  cursor: pointer;
 }
 #top-container #post-info {
   width: 100%;
