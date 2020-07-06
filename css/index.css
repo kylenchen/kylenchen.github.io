@@ -414,6 +414,70 @@ table td {
   z-index: -1;
   pointer-events: none;
 }
+@-moz-keyframes headerNoOpacity {
+  0% {
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes headerNoOpacity {
+  0% {
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-o-keyframes headerNoOpacity {
+  0% {
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes headerNoOpacity {
+  0% {
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
 .article-container figure.highlight.js table:before {
   content: "js";
 }
@@ -1801,6 +1865,11 @@ figure.gallery-group .gallery-group-name:after {
   -o-transition: all 0.3s;
   -ms-transition: all 0.3s;
   transition: all 0.3s;
+  -webkit-animation: 1.2s ease 0s 1 normal none running headerNoOpacity;
+  -moz-animation: 1.2s ease 0s 1 normal none running headerNoOpacity;
+  -o-animation: 1.2s ease 0s 1 normal none running headerNoOpacity;
+  -ms-animation: 1.2s ease 0s 1 normal none running headerNoOpacity;
+  animation: 1.2s ease 0s 1 normal none running headerNoOpacity;
 }
 #page-header .toggle-menu {
   display: none;
@@ -1868,9 +1937,10 @@ figure.gallery-group .gallery-group-name:after {
 }
 #page-header #site-name {
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
-  font-size: 1.3rem;
-  font-family: Galada, -apple-system, "Nimbus Roman No9 L", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Ma Shan Zheng", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-size: 1rem;
   cursor: pointer;
+  font-weight: 800;
+  font-family: Galada, Georgia, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, "Noto Serif SC", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 #page-header .menus_item {
   display: inline-block;
