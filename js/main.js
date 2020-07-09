@@ -263,25 +263,17 @@ $(function() {
 
   //---------------------------------------------------------------------------------------------------
   //fancybox
-  var imgList = $(".recent-post-info  img");
-  if (imgList.length === 0) {
-    imgList = $("#post-content img");
-  }
-  for (var i = 0; i < imgList.length; i++) {
-    var lazyload_src = imgList[i].src ? imgList[i].src : imgList.eq(i).attr("data-src")
-    var $a = $(
-      '<a href="' +
-      lazyload_src +
-      '" data-fancybox="group" data-caption="' +
-      imgList[i].alt +
-      '" class="fancybox"></a>'
-    );
-    var alt = imgList[i].alt;
-    var $wrap = $(imgList[i]).wrap($a);
-    if (alt) {
-      $wrap.after('<div class="img-alt">' + alt + "</div>");
-    }
-  }
+  var images = $("#post-content img");
+  images.each(function (i, o) {
+    var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
+    $(o).wrap(
+        '<a href="' +
+        lazyloadSrc +
+        '" data-fancybox="group" data-caption="' +
+        $(o).attr('alt') +
+        '" class="fancybox"></a>'
+      )
+  })
 
   $().fancybox({
     selector: "[data-fancybox]",
@@ -291,6 +283,7 @@ $(function() {
     // wheel: false,
     buttons: ["slideShow", "fullScreen", "thumbs", "close"]
   });
+
 
   /**
    * justified-gallery 圖庫排版
