@@ -336,14 +336,27 @@ $(function() {
   var $img = $("#post img");
     //$img.addClass("lozad");
   $img.each(function() {
-    var src_link = $(this).attr("src");
-    $(this).attr("data-src", src_link);
     $(this).attr("onerror", "onerror=null;src='/img/404.jpg'");
+    // var src_link = $(this).attr("src");
+    // $(this).attr("data-src", src_link);
     //$(this).removeAttr("src");
-  })
+  });
 
-  const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-  observer.observe();
+  var $galleryGImg = $(".gallery-group img")
+  $galleryGImg.each(function() {
+    $(this).attr("onerror", "onerror=null;src='/img/404.jpg'");
+  });
+
+  var $galleryImg = $("#gallery img")
+  $galleryImg.each(function() {
+    $(this).attr("onerror", "onerror=null;src='/img/404.jpg'");
+  });
+
+
+  // if (GLOBAL_CONFIG.islazyload) {   // for lozad.js
+  //   window.lozad('img').observe()
+  // }
+
 
   //---------------------------------------------------------------------------------------------------------
   /**

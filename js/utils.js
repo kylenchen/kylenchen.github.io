@@ -66,6 +66,15 @@ function loadScript (url, callback) {
   document.body.appendChild(script)
 };
 
+/**
+ * lazyload
+ */
+if (GLOBAL_CONFIG.islazyload) {
+  window.lazyLoadOptions = {
+    elements_selector: 'img',
+    threshold: 0
+  }
+}
 
 window.debounce = debounce
 
