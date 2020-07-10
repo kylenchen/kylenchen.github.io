@@ -499,6 +499,70 @@ img:not([src]) {
     transform: translateY(0);
   }
 }
+@-moz-keyframes sidebarItem {
+  0% {
+    -webkit-transform: translateX(200px);
+    -moz-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes sidebarItem {
+  0% {
+    -webkit-transform: translateX(200px);
+    -moz-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-o-keyframes sidebarItem {
+  0% {
+    -webkit-transform: translateX(200px);
+    -moz-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes sidebarItem {
+  0% {
+    -webkit-transform: translateX(200px);
+    -moz-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
 .article-container figure.highlight.js table:before {
   content: "js";
 }
@@ -2133,6 +2197,7 @@ figure.gallery-group .gallery-group-name:after {
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.27);
   box-shadow: 0 0 4px rgba(0,0,0,0.27);
   z-index: 103;
+  overflow-x: hidden;
   overflow-y: scroll;
   display: block;
   -webkit-transition: -webkit-transform 0.3s;
