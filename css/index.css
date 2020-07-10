@@ -152,6 +152,10 @@ details summary {
   border: thin #c0c0c0 solid;
   text-align: center;
 }
+.table-wrap {
+  overflow-x: scroll;
+  margin: 0 0 1rem;
+}
 table {
   overflow: auto;
   width: 100%;
@@ -165,7 +169,7 @@ table th,
 table td {
   padding: 0.3rem 0.6rem;
   border: 1px solid #d6d6d6;
-  vertical-align: top;
+  vertical-align: middle;
 }
 *::selection {
   background: #4e83a8;
@@ -2072,7 +2076,7 @@ figure.gallery-group .gallery-group-name:after {
     content: "\f00d";
   }
   #page-header .dissearch {
-    display: none;
+    display: none !important;
   }
 }
 @media screen and (max-width: 1024px) {

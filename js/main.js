@@ -614,4 +614,13 @@ $(function() {
     var font_size_record = parseFloat($('body').css('font-size'))
     $('body').css('font-size', font_size_record - 1)
   });
+
+  /**
+   * table overflow
+   */
+  const $table = $('.article-container table').not($('figure.highlight >table'))
+  $table.each(function () {
+    $(this).wrap('<div class="table-wrap"></div>')
+  })
+
 });
