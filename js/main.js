@@ -361,34 +361,63 @@ $(function() {
       $(".toggle-menu").removeClass("open").addClass("close");
       $('body').removeClass("open-mobile-menus");
       $('.toggle-menu').toggleClass('timesicon');
-      $('.search').toggleClass('dissearch');
+      $('.search').toggleClass('dishide');
+      $('#rightside').toggleClass('disrightside');
       $('#menu_mask').fadeOut()
     }
   }
 
+  function mobile_toc_close() {
+    if ($("#mobile-toc-button").hasClass("open")) {
+      $("#mobile-toc-button").removeClass("open").addClass("close");
+      $('body').removeClass("open-mobile-toc");
+      $('#rightside').toggleClass('disrightside');
+      $('.search').toggleClass('dishide');
+      $('.toggle-menu').toggleClass('dishide');
+      $('#menu_mask').fadeOut();
+    }
+  }
 
   $('.toggle-menu').on('click', function() {
     if ($(".toggle-menu").hasClass("close")) {
       $(".toggle-menu").removeClass("close").addClass("open");
       $('body').addClass("open-mobile-menus");
       $('.toggle-menu').toggleClass('timesicon');
-      $('.search').toggleClass('dissearch');
+      $('.search').toggleClass('dishide');
+      $('#rightside').toggleClass('disrightside');
       $('#menu_mask').fadeIn();
     }
   })
 
-
-
-  $('#menu_mask').on('click touchstart', function() {
-    mobile_menu_close()
-  })
-
-  $(window).on('resize', function(e) {
-    if (!$('.toggle-menu').is(':visible')) {
-      mobile_menu_close()
+  $('#mobile-toc-button').on('click', function () {
+    if ($("#mobile-toc-button").hasClass("close")) {
+      $("#mobile-toc-button").removeClass("close").addClass("open");
+      $('body').addClass("open-mobile-toc");
+      $('#rightside').toggleClass('disrightside');
+      $('.search').toggleClass('dishide');
+      $('.toggle-menu').toggleClass('dishide');
+      $('#menu_mask').fadeIn();
     }
   })
 
+  $('#menu_mask').on('click touchstart', function() {
+    mobile_menu_close()
+    mobile_toc_close()
+  })
+
+  $(window).on('resize', function (e) {
+    if (!$('.toggle-menu').is(':visible')) {
+      mobile_menu_close()
+    }
+    if (!$('#mobile-toc-button').is(':visible')) {
+      mobile_toc_close()
+    }
+  })
+
+  //點擊toc，收起sidebar
+   $("#mobile-sidebar-toc a").on('click', function () {
+     mobile_toc_close()
+   })
 
   /**
    * menu

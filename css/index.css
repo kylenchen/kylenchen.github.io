@@ -278,7 +278,8 @@ table td {
 }
 #rightside #readmode,
 #rightside #font_plus,
-#rightside #font_minus {
+#rightside #font_minus,
+#rightside #mobile-toc-button {
   width: 30px;
   height: 30px;
   background-color: #4e83a8;
@@ -325,6 +326,14 @@ table td {
 }
 #rightside a:after {
   color: #fff;
+}
+#rightside #mobile-toc-button {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  #rightside #mobile-toc-button {
+    display: block;
+  }
 }
 .comment_headling {
   font-size: 20px;
@@ -2075,7 +2084,7 @@ figure.gallery-group .gallery-group-name:after {
   #page-header .timesicon:before {
     content: "\f00d";
   }
-  #page-header .dissearch {
+  #page-header .dishide {
     display: none !important;
   }
 }
@@ -2112,7 +2121,8 @@ figure.gallery-group .gallery-group-name:after {
   z-index: 102;
   display: none;
 }
-#mobile-sidebar #mobile-sidebar-menus {
+#mobile-sidebar #mobile-sidebar-menus,
+#mobile-sidebar #mobile-sidebar-toc {
   position: fixed;
   top: 0;
   right: -254px;
@@ -2125,12 +2135,13 @@ figure.gallery-group .gallery-group-name:after {
   z-index: 103;
   overflow-y: scroll;
   display: block;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
+  -ms-transition: -ms-transform 0.3s;
+  transition: transform 0.3s;
   display: none;
+  will-change: transform;
 }
 #mobile-sidebar #mobile-sidebar-menus .mobile_author_icon {
   padding: 1.3rem 1.5rem 0;
@@ -2265,36 +2276,70 @@ figure.gallery-group .gallery-group-name:after {
 #mobile-sidebar a:hover {
   color: #4e83a8;
 }
-.open-mobile-menus {
+#mobile-sidebar #mobile-sidebar-toc {
+  padding: 1rem 0.5rem 5rem 0.3rem;
+}
+#mobile-sidebar #mobile-sidebar-toc ol,
+#mobile-sidebar #mobile-sidebar-toc li {
+  list-style: none;
+  padding: 0 0 0 12px;
+  margin: 0;
+}
+#mobile-sidebar #mobile-sidebar-toc a {
+  color: #4e83a8;
+}
+#mobile-sidebar #mobile-sidebar-toc a:hover {
+  display: block;
+  padding-left: 0.2rem;
+  border-right: 3px solid transparent;
+  border-right-color: #3e6986;
+  background: #4e83a8;
+  color: #fff;
+}
+#mobile-sidebar #mobile-sidebar-toc .toc_mobile_headline {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.open-mobile-menus,
+.open-mobile-toc {
   overflow: hidden;
 }
-.open-mobile-menus #body-wrap {
+.open-mobile-menus #body-wrap,
+.open-mobile-toc #body-wrap {
   -webkit-transform: translateX(-250px);
   -moz-transform: translateX(-250px);
   -o-transform: translateX(-250px);
   -ms-transform: translateX(-250px);
   transform: translateX(-250px);
 }
-.open-mobile-menus #page-header {
+.open-mobile-menus #page-header,
+.open-mobile-toc #page-header {
   -webkit-transform: translateX(-250px);
   -moz-transform: translateX(-250px);
   -o-transform: translateX(-250px);
   -ms-transform: translateX(-250px);
   transform: translateX(-250px);
 }
-.open-mobile-menus #page-header.fixed.visible {
+.open-mobile-menus #page-header.fixed.visible,
+.open-mobile-toc #page-header.fixed.visible {
   -webkit-transform: translate3d(-250px, 100%, 0);
   -moz-transform: translate3d(-250px, 100%, 0);
   -o-transform: translate3d(-250px, 100%, 0);
   -ms-transform: translate3d(-250px, 100%, 0);
   transform: translate3d(-250px, 100%, 0);
 }
-.open-mobile-menus #rightside {
+.open-mobile-menus #rightside,
+.open-mobile-toc #rightside {
   -webkit-transform: translate3d(-288px, 0, 0) !important;
   -moz-transform: translate3d(-288px, 0, 0) !important;
   -o-transform: translate3d(-288px, 0, 0) !important;
   -ms-transform: translate3d(-288px, 0, 0) !important;
   transform: translate3d(-288px, 0, 0) !important;
+}
+.open-mobile-menus .disrightside,
+.open-mobile-toc .disrightside {
+  display: none !important;
 }
 .open-mobile-menus #mobile-sidebar #mobile-sidebar-menus {
   -webkit-transform: translateX(-254px);
@@ -2302,6 +2347,22 @@ figure.gallery-group .gallery-group-name:after {
   -o-transform: translateX(-254px);
   -ms-transform: translateX(-254px);
   transform: translateX(-254px);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#sidebar {
+  left: -300px !important;
+}
+.open-mobile-toc #mobile-sidebar #mobile-sidebar-toc {
+  -webkit-transform: translateX(-254px);
+  -moz-transform: translateX(-254px);
+  -o-transform: translateX(-254px);
+  -ms-transform: translateX(-254px);
+  transform: translateX(-254px);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 @media screen and (max-width: 768px) {
   #mobile-sidebar-menus {
