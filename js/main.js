@@ -666,4 +666,28 @@ $(function() {
     $(this).wrap('<div class="table-wrap"></div>')
   })
 
+
+  /**
+   * tabs
+   */
+
+  const $tab = $('.article-container .tabs')
+  $tab.find('.tab button').on('click', function (e) {
+  const $this = $(this)
+  const $tabItem = $this.parent()
+
+  if (!$tabItem.hasClass('active')) {
+    const $tacbContent = $this.parents('.nav-tabs').next()
+    $tabItem.siblings('.active').removeClass('active')
+    $tabItem.addClass('active')
+    const tabId = $this.attr('data-href')
+    $tacbContent.find('> .tab-item-content').removeClass('active')
+    $tacbContent.find(`> ${tabId}`).addClass('active')
+    const $isTabJustifiedGallery = $tacbContent.find(tabId).find('.justified-gallery')
+    if (isJustifiedGallery && $isTabJustifiedGallery.length > 0) {
+      initJustifiedGallery($isTabJustifiedGallery)
+    }
+  }
+})
+
 });

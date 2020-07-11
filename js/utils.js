@@ -76,6 +76,13 @@ if (GLOBAL_CONFIG.islazyload) {
   }
 }
 
+function scrollToDest (name, offset = 0) {
+  const scrollOffset = $(name).offset()
+  $('body,html').animate({
+    scrollTop: scrollOffset.top - offset
+  })
+};
+
 window.debounce = debounce
 
 window.throttle = throttle
