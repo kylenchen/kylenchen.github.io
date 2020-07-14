@@ -1907,7 +1907,7 @@ footer.footer-bg {
   position: relative;
   padding-bottom: 0.3rem;
   text-shadow: 0.05rem 0.05rem 0.1rem rgba(0,0,0,0.3);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 .site-page::after {
@@ -3316,11 +3316,11 @@ img:hover {
   display: none;
 }
 #post-content p {
-  font-size: 1.1em;
+  font-size: 15.4px;
 }
 #post-content ol,
 #post-content ul {
-  font-size: 1em;
+  font-size: 14px;
 }
 @media screen and (max-width: 900px) {
   .layout {
@@ -4763,6 +4763,10 @@ footer {
     background: none;
     padding: 0px 20px 0;
     margin-top: 1px;
+  }
+  #gallery:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 }
 @media screen and (max-width: 768px) {
