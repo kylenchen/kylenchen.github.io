@@ -691,6 +691,9 @@ blockquote {
   word-wrap: break-word;
   font-size: 14px;
 }
+.article-container pre {
+  padding: 0;
+}
 .article-container pre code {
   padding: 0;
   background: none;
