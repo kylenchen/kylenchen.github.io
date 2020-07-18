@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>轻量级代码高亮插件使用</title>
+      <link href="/posts/code-highlight/"/>
+      <url>/posts/code-highlight/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>本文主要介绍两款轻量级的插件highlight.js和prism.js。</p></blockquote><h2 id="highlightjs"><a href="#highlightjs" class="headerlink" title="highlightjs"></a>highlightjs</h2><h3 id="基本特点"><a href="#基本特点" class="headerlink" title="基本特点"></a>基本特点</h3><p><code>highlight.js</code>是一个用于在任何web页面上着色显示各种示例源代码语法的JS项目。具有以下特色：</p><ul><li>支持 189种语言，98种代码格式化风格。</li><li>自动检测语言种类</li><li>支持多语言混合的代码高亮</li><li>支持<code>Node.js</code></li><li>支持使用任何HTML标记</li><li>兼容任意<code>js</code>框架</li></ul><p>目前最高版本是2020年06月16日发行的。点击 <code>Get version 10.1.1</code>进入，可进行下载。<code>Usage</code>链接的是说明文档。</p><h3 id="下载使用"><a href="#下载使用" class="headerlink" title="下载使用"></a>下载使用</h3><p><code>highlight.js</code>可通过CDN 引入包和手动下载等方式导入。官网下载地址：<a href="https://highlightjs.org/download/" target="_blank" rel="noopener">https://highlightjs.org/download/</a></p><p><code>highlight.js</code>的使用比较简单，这里通过官网提供的CDN链接讲解使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/default.min.css"</span>&gt;</span><br><span class="line">&lt;script src=<span class="string">"//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>安装的思路非常简单：</p><ul><li>导入 CSS 文件</li><li>导入 JS 文件</li><li>加载 JS</li></ul><p>导入<code>highlight.js</code>，最简单的方法是在<code>header.php</code>加入下面代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/default.min.css"</span>&gt;</span><br><span class="line">&lt;script src=<span class="string">"//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;hljs.initHighlightingOnLoad();<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>为了导入代码的规范化，推荐将JS 放在<code>&lt;body&gt;</code>中而非<code>&lt;head&gt;</code>中，所以改进后的办法是将<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;hljs.initHighlightingOnLoad();<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>移至<code>footer.php</code>中<code>&lt;/body&gt;</code>标签之前。</p><p>为实现代码高亮则应将代码放在标签<code>&lt;pre&gt;&lt;code class=&quot;json&quot;&gt;...&lt;/code&gt;&lt;/pre&gt;</code>，采用文本编辑的方式。<code>class</code>用来指定放入代码的数据类型，不写的话，程序可自动检测。防止出错，最好写上。</p><p>若采用可视化编辑方式，将直接写入的代码预格式化，可采用下面方式调用方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   $(<span class="string">'pre'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">i, e</span>) </span>&#123;hljs.highlightBlock(e)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p><h2 id="prismjs"><a href="#prismjs" class="headerlink" title="prismjs"></a>prismjs</h2><h3 id="基本特点-1"><a href="#基本特点-1" class="headerlink" title="基本特点"></a>基本特点</h3><p><code>Prism</code>是一个轻量级，可扩展的语法着色工具，符合<code>Web</code>标准。每种语言定义约增加<code>300-500</code>自己大小。非常易于使用，只需要插入一个<code>CSS</code>和<code>JS</code>文件即可。支持多种着色主题。</p><ul><li>极致易用：引用<code>prism.css</code>和<code>prism.js</code>，使用合适的<code>HTML5</code>标签<code>（code.language-xxxx</code>），搞定！</li><li>天生伶俐：语言的<code>CSS</code>类是可继承的，所以你只需定义一次就能应用到多个代码片段。</li><li>轻如鸿毛：代码压缩后只有<code>1.6KB</code>。每添加一个语言平均增加<code>0.3-0.5KB</code>，主题在<code>1KB</code>左右。</li><li>快如闪电：如果可能，支持通过<code>Web Workers</code>实现并行。</li><li>轻松扩展：定义新语言或扩展现有语法，或者新增功能都非常简单。</li><li>丰富样式：所有的样式通过<code>CSS</code>完成，并使用合理的类名如：<code>.comment</code>, <code>.string</code>, <code>.property</code>等</li></ul><h3 id="下载使用-1"><a href="#下载使用-1" class="headerlink" title="下载使用"></a>下载使用</h3><p>官网下载地址：<a href="http://prismjs.com/download.html" target="_blank" rel="noopener">http://prismjs.com/download.html</a> 。选择主题样式和支持的语言，根据需要可选<code>Plugins</code>，如<code>Line Numbers</code>，<code>Copy to Clipboard Button</code>等插件。最好下载<code>prism.js</code>和<code>prism.css</code>文件，并上传到服务器主题文件相应的位置。</p><p>编辑<code>function.php</code>文件，添加如下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add_prism</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">wp_enqueue_style( <span class="string">'prism-css'</span>, get_stylesheet_directory_uri() . <span class="string">'/css/prism.css'</span> );</span><br><span class="line">wp_enqueue_script( <span class="string">'prism-js'</span>, get_stylesheet_directory_uri() . <span class="string">'/js/prism.js'</span>, [], <span class="literal">false</span>, <span class="literal">true</span> );</span><br><span class="line">&#125;</span><br><span class="line">add_action( <span class="string">'wp_enqueue_scripts'</span>, <span class="string">'add_prism'</span> );</span><br></pre></td></tr></table></figure><br>需要插入代码的时候，使用文本编辑，按照如下格式插入代码块:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;<span class="xml"><span class="tag">&lt;<span class="name">code</span> <span class="attr">class</span>=<span class="string">"language-python line-numbers"</span>&gt;</span>代码<span class="tag">&lt;/<span class="name">code</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>切记需使用文本编辑模式，否则可能无法识别。标签<code>class=&quot;language-xxx&quot;</code> 要写上。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>highlight.js</code>可以自动识别数据类型，且样式多样，相较于<code>prism.js</code>，并未提供显示代码行数的功能，需要自定义才能实现。<code>prism.js</code>提供了相应的插件功能，可选复制代码按钮等。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 代码 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown实用语法教程</title>
       <link href="/posts/markdownbk/"/>
       <url>/posts/markdownbk/</url>
@@ -367,9 +394,9 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
