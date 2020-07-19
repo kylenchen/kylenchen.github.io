@@ -2389,6 +2389,9 @@ footer.footer-bg {
 .night-mode .article-container .highlight::-webkit-scrollbar-thumb {
   background: #2d3f52;
 }
+.night-mode .article-container pre {
+  background: #2d3035;
+}
 .night-mode .copy-notice {
   background: #1b263b;
 }
