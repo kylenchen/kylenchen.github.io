@@ -659,6 +659,9 @@ img:not([src]) {
 .article-container figure.highlight.json table:before {
   content: "json";
 }
+.article-container figure.highlight.php table:before {
+  content: "php";
+}
 .article-container pre,
 .article-container .highlight {
   overflow: auto;
