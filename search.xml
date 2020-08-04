@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>OpenWrt磁盘挂载及网络文件共享</title>
+      <link href="/posts/op-netsharing/"/>
+      <url>/posts/op-netsharing/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&emsp;&emsp;在使用硬盘或U盘安装Openwrt系统时，磁盘会被分为几个分区，其中系统分区只占用很小的部分，一般也就也就几百兆，剩下是未分区的部分。16G的U盘(实际空间14.8G)，安装openwrt系统后，剩余14.2G空间。可以把剩余空间挂载起来，实现网络文件共享。</p><h2 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h2><p> &emsp;&emsp;通过SSH工具连接，输入分区（命令）<code>fdisk /dev/sda</code>，可以查看系统磁盘分区。输入<code>p</code>（命令）查看磁盘的容量、型号、扇区、格式，和已存在的分区。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/1.png" alt=""></p><p>&emsp;&emsp;可以看出，磁盘共有14.86G，其中有两个分区，如果把剩余的空间进行分区，即新建分区，需要输入小写n。提示设置分区编号，看到已有分区，可默认按回车。提示输入起始扇区，这里需要注意下，一般情况下默认即可。但是本次操作时默认起始扇区(2048-31116287)有误，直接默认输入后，修改保存，提示“Partition table entries are not in disk order”，经过<code>Command (m for help): x</code>和<code>Expert command (m for help): f</code>修复后，原先的<code>/dev/sda3</code>变成了<code>/dev/sda1</code>，其他两个分区的盘符也随之改变，之后无法进行格式化操作。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/2.png" alt=""></p><p>&emsp;&emsp;错误原因：新建分区时，起始扇区输入有误，起始扇区2048-31116287，已经包含了原先的<code>/dev/sda1</code>和<code>/dev/sda2</code>的扇区，且2048其实扇区在最前，修复盘符顺序后，故<code>/dev/sda3</code>变成<code>/dev/sda1</code>。解决方法：<code>Command (m for help): d</code> 删除新建分区，重新新建分区。根据原先的盘符错误新建分区编号应该选<code>1</code>，即<code>/dev/sda1</code>，默认起始扇区输入1318912，扇区在Id为83分区之后1318912。提示输入结束扇区默认，查看新建分区 是否成功<code>Command (m for help): p</code>。因为之前的分区盘符有误，再通过<code>Command (m for help): x</code>和<code>Expert command (m for help): f</code>修复fix partition order。<code>Command (m for help): w</code>保存退出分区。</p><p>&emsp;&emsp;格式化分区<code>mkfs.ext4 /dev/sda3</code>。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/3.png" alt=""></p><h2 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h2><p>&emsp;&emsp;登录系统：系统 - 挂载点 - 添加。UUID根据需要选择新建的<code>/dev/sda3</code>分区，”挂载点“选择自定义为<code>/mnt/sda3</code>,勾选启用挂载点，保存应用。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/4.png" alt=""></p><p>&emsp;&emsp;主页页面中，选择“服务”–“网络共享”。在共享页面的“常规设置”里，查看工作组，需要和内网其他需访问共享的设备在同一个工作组，默认是“WORKGROUP”。勾选”共享家目录“和”启用 macOS 兼容共享“。</p><p>&emsp;&emsp;设置共享目录。“共享名”是你其他设备上会看到的共享的名字，可以随自己喜好填；“目录”是你要共享的硬盘分区或者目录，根据自己挂载的磁盘填写，这里为<code>/mnt/sda3</code>；“允许用户”是你允许访问共享的用户，为了安全起见，建议不要用匿名，万一被别人蹭网。然后给目录权限，<code>0777</code>。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/5.png" alt=""></p><p>&emsp;&emsp;点击“编辑模板”，查看在“<code>invalid users = root</code>”前是否有一个<code>#</code>号，没有需添加<code>#</code>号，即将本行注释掉，这样系统<code>root</code>用户就不会被限制访问<code>samba</code>了。</p><p>&emsp;&emsp;为访问共享文件的安全性，可为<code>samba</code>设置访问密码。<code>SSH</code>连接系统，输入下面代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a root</span><br></pre></td></tr></table></figure><p>然后会要求你输入密码，然后重复密码，这个密码就是你的<code>samba</code>访问的密码，输入完了就算完成了。输入<code>reboot</code>重启。可登入系统后台，执行重启。<strong><code>一定重启一下路由！</code></strong> 保证正确挂载才可以。</p><h2 id="Windows电脑开启网络共享"><a href="#Windows电脑开启网络共享" class="headerlink" title="Windows电脑开启网络共享"></a>Windows电脑开启网络共享</h2><p>&emsp;&emsp;打开控制面板，选择”程序“，点击”启用或关闭Windows功能“，勾选”SMB 1.0/CIFS File Sharing Support“和”SMB Direct”，确定且等待加载完成，稍后重启计算机。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/6.png" alt=""></p><p>&emsp;&emsp;<code>Win+R</code>打开“运行”，输入<code>gpedit.msc</code>，“确定”以打开“本地组策略编辑器”，或者左下角搜索框搜索”编辑组策略“打开。</p><p>按 计算机配置→管理模板→网络 的顺序，依次展开左侧目录树。点击“Lanman工作站”，右侧会显示该项目的详细设置。点击里面的“启用不安全的来宾登录”，将它由“未配置”改为“已启用”。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/7.png" alt=""></p><p>&emsp;&emsp;控制面板→网络和共享中心→高级共享设置，选择”启动网络发现“和”启用文件和打印机共享“。注意开启后，你的计算机会被其他局域网里的设备搜索到。<strong><code>完成后重启计算机！</code></strong><br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/8.png" alt=""></p><p>&emsp;&emsp;然后打开电脑上的网络，就可以发现局域网共享文件，打开目录，要求输入访问用户和密码，输入<code>root</code>，密码就是<code>samba</code>设置的密码，即可访问网络共享了。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/op-netsharing/9.png" alt=""></p><p>&emsp;&emsp;手机端可以下载VLC、ES文件浏览器和Kodi等客户端访问本地局域网网络共享文件。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OpenWrt </tag>
+            
+            <tag> 网络共享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WordPress更换服务器数据迁移</title>
       <link href="/posts/wordpressmg/"/>
       <url>/posts/wordpressmg/</url>
