@@ -66,7 +66,7 @@ $(function () {
             var isMatch = true
             var dataTitle = data.title.trim().toLowerCase()
             var dataContent = data.content.trim().replace(/<[^>]+>/g, '').toLowerCase()
-            var dataUrl = data.url
+            var dataUrl = data.url.startsWith('/') ? data.url : GLOBAL_CONFIG.root + data.url
             var indexTitle = -1
             var indexContent = -1
             // only match artiles with not empty titles and contents
