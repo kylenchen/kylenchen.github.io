@@ -529,10 +529,11 @@ $(function() {
     scrollToHead('#' + $(this).attr('id'))
   })
 
+ // hexo version > 5.0 
   // head scroll
   $('.toc-link').on('click', function(e) {
     e.preventDefault()
-    scrollToHead($(this).attr('href'))
+    scrollToHead(decodeURI($(this).attr('href')))
   })
 
   // find the scroll direction
@@ -544,7 +545,7 @@ $(function() {
 
   // scroll to a head(anchor)
   function scrollToHead(anchor) {
-    scrollTo(anchor);
+      scrollTo(anchor);
   }
 
   // expand toc-item
@@ -574,6 +575,8 @@ $(function() {
     }
   }
 
+  const versionBiggerFive = GLOBAL_CONFIG.hexoVersion.split('.')[0] >= 5
+
   // find head position & add active class
   // DOM Hierarchy:
   // ol.toc > (li.toc-item, ...)
@@ -590,7 +593,8 @@ $(function() {
     list.each(function() {
       var head = $(this)
       if (top > head.offset().top - 25) {
-        currentId = '#' + $(this).attr('id')
+        if (versionBiggerFive) currentId = '#' + encodeURI($(this).attr('id'))
+        else currentId = '#' + $(this).attr('id')
       }
     })
 
@@ -598,6 +602,7 @@ $(function() {
       $('.toc-link').removeClass('active')
       $('.toc-child').hide()
     }
+
 
     var currentActive = $('.toc-link.active')
     if (currentId && currentActive.attr('href') !== currentId) {
