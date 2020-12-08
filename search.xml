@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>AWS lightsail实现用SSH root用户登录</title>
+      <link href="posts/lightsail-ssh/"/>
+      <url>posts/lightsail-ssh/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Lightsail是AWS旗下的轻量级VPS产品，其主要客户目标是针对Digital Ocean, Vultr, Linode等商家的产品。最低配置3.5刀/月，512MB内存，1个虚拟CPU，20GB的SSD，1TB的双向流量。Lightsail可以免费绑定一个静态IP，按需小时费率计费，因此只需为实际使用量付费。如要删除实例，切记也要删掉静态IP，避免IP占用被收费。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/lightsail-ssh/1.png"></p><blockquote><p>在注册账户，创建实例后，发现了一个问题，不能通过ssh用root账户直连，AWS控制台比较卡，故需要解决lightsail无法用SSH root用户登录的问题，方便使用。</p></blockquote><h2 id="第一种办法（创建实例）"><a href="#第一种办法（创建实例）" class="headerlink" title="第一种办法（创建实例）"></a>第一种办法（创建实例）</h2><p><strong>1、创建实例的时候，点击添加启动脚本</strong><br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/lightsail-ssh/2.png"></p><p><strong>2、输入如下启动脚本（注意修改root密码）</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> root:password |sudo chpasswd root</span><br><span class="line">sudo sed -i <span class="string">&#x27;s/^#\?PermitRootLogin.*/PermitRootLogin yes/g&#x27;</span> /etc/ssh/sshd_config;</span><br><span class="line">sudo sed -i <span class="string">&#x27;s/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g&#x27;</span> /etc/ssh/sshd_config;</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure><p>代码中的第一句中的 <code>password</code> 改为你自己的密码即可。成功创建实例以后就可以使用 root 和密码直接登录 SSH 了。</p><p><strong>3、等主机启动后就OK了</strong></p><h2 id="第二种办法（已经创建实例）"><a href="#第二种办法（已经创建实例）" class="headerlink" title="第二种办法（已经创建实例）"></a>第二种办法（已经创建实例）</h2><p><strong>1、连接aws的控制台：<code>&gt;_</code> 如图</strong><br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/lightsail-ssh/3.png"></p><p><strong>2、设置root账户的密码：<code>sudo passwd</code></strong><br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/lightsail-ssh/4.png"></p><p><strong>3、修改登录权限</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><p>将 <code>PasswordAuthentication</code> 的 <code>no</code> 改成 <code>yes</code>。<br><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/kylenchen/CDN@latest/post/lightsail-ssh/5.png"></p><p><strong>4、重启sshd服务</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure><p>再然后我们就可以 ssh -p 22 <a href="mailto:root@ip">root@ip</a> ，是不是很爽。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Lightsail基本能满足大部分的需求，但是网络带宽和延迟表现一般，IO性能较差。此外，最低配主机首月免费，东京、首尔和新加坡机房是最优之选，毕竟AWS大厂，具有一定的性价比。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://colo.run/archives/lightsail-ssh-root-login">解决AWS lightsail无法用SSH root用户登录的问题</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> VPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> SSH </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Openwrt路由服务配置与应用</title>
       <link href="posts/router-openwrt/"/>
       <url>posts/router-openwrt/</url>
