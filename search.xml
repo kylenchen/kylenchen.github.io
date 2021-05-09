@@ -5,8 +5,8 @@
     
     <entry>
       <title>Typecho开启Gzip压缩加速网站</title>
-      <link href="posts/lightsail-ssh/"/>
-      <url>posts/lightsail-ssh/</url>
+      <link href="posts/gzip/"/>
+      <url>posts/gzip/</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Gzip简介"><a href="#Gzip简介" class="headerlink" title="Gzip简介"></a>Gzip简介</h2><p>GZip压缩，是一种网站速度优化技术，也是一把SEO优化利器，许多网站都采用了这种技术，以达到提升网页打开速度、缩短网页打开时间的目的。</p><p>网站采用Gzip压缩，还有一个好处，就是让你少了一份流量超标的担心。因为Gzip开启以后会将输出到用户浏览器的数据进行压缩的处理，这样就会减小通过网络传输的数据量，而这个，也正是提升网页打开时间的原因所在。</p><h2 id="开启方法"><a href="#开启方法" class="headerlink" title="开启方法"></a>开启方法</h2><p>打开typecho目录下的 <code>index.php</code>，并在开头添加 <code>ob_start(&#39;ob_gzhandler&#39;)</code>; 即可。</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/Thbook/webpic@latest/blogpic/2021/05/09/1620572725.png"></p>]]></content>
       
